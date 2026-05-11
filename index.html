@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-case - Archive Viewer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-content {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .controls {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-box {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .search-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.75rem;
+        border: 2px solid #e1e5e9;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background: #5a6fd8;
+      }
+
+      .sort-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .sort-select {
+        padding: 0.5rem;
+        border: 2px solid #e1e5e9;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .stats {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .archive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .archive-item {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .archive-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .case-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .case-date {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .case-path {
+        color: #999;
+        font-size: 0.8rem;
+        font-family: monospace;
+        margin-bottom: 1rem;
+      }
+
+      .case-preview {
+        background: #f8f9fa;
+        padding: 0.75rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        max-height: 100px;
+        overflow-y: auto;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 3rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: #000;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .archive-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .search-box {
+          flex-direction: column;
+        }
+
+        .sort-controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-content">
+          <h1>X-case</h1>
+          <p class="subtitle">Archive Viewer - 研究データアーカイブ</p>
+        </div>
+      </header>
+
+      <div class="controls">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="ケース名、日付、内容で検索..."
+          />
+          <button class="btn" onclick="performSearch()">検索</button>
+          <button class="btn" onclick="clearSearch()">クリア</button>
+        </div>
+        <div class="sort-controls">
+          <label for="sortSelect">並び替え:</label>
+          <select id="sortSelect" class="sort-select" onchange="sortArchive()">
+            <option value="date-desc">日付 (新しい順)</option>
+            <option value="date-asc">日付 (古い順)</option>
+            <option value="name-asc">名前 (A-Z)</option>
+            <option value="name-desc">名前 (Z-A)</option>
+          </select>
+          <label for="yearFilter">年份:</label>
+          <select
+            id="yearFilter"
+            class="sort-select"
+            onchange="filterArchive()"
+          >
+            <option value="">すべて</option>
+          </select>
+          <label for="monthFilter">月份:</label>
+          <select
+            id="monthFilter"
+            class="sort-select"
+            onchange="filterArchive()"
+          >
+            <option value="">すべて</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stats" id="stats">
+        <div class="stat-item">
+          <div class="stat-number" id="totalCases">0</div>
+          <div class="stat-label">総ケース数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="totalDays">0</div>
+          <div class="stat-label">分析日数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="currentMonth">0</div>
+          <div class="stat-label">今月のケース</div>
+        </div>
+      </div>
+
+      <div id="loading" class="loading">アーカイブデータを読み込み中...</div>
+
+      <div id="archiveGrid" class="archive-grid" style="display: none"></div>
+
+      <div id="noResults" class="no-results" style="display: none">
+        <h3>該当するケースが見つかりませんでした</h3>
+        <p>検索条件を変更して再度お試しください</p>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <script>
+      let archiveData = [];
+      let filteredData = [];
+
+      // アーカイブデータの構造を定義
+      const archiveStructure = {
+        "2026-05-10": [
+          "Case_001_hideto_sa_2026-05-10_reanalysis.md",
+          "Case_002_hayakore_2026-05-10.md",
+          "Case_003_gihuboy_2026-05-10.md",
+          "Case_004_tesuta001_2026-05-10.md",
+        ],
+        "2026-05-11": ["Case_005_okada_junichi_2026-05-11.md"],
+      };
+
+      // 初期化
+      async function init() {
+        await loadArchiveData();
+        updateStats();
+        populateFilters();
+        displayArchive();
+      }
+
+      // アーカイブデータを読み込み
+      async function loadArchiveData() {
+        archiveData = [];
+
+        for (const [dateDir, files] of Object.entries(archiveStructure)) {
+          for (const filename of files) {
+            const [year, month, day] = dateDir.split("-");
+            archiveData.push({
+              filename: filename,
+              year: year,
+              month: month,
+              day: day,
+              dateDir: dateDir,
+              path: `archive/${dateDir}/${filename}`,
+              date: new Date(`${year}-${month}-${day}T12:00:00`),
+              caseId: filename.split("_")[1],
+              name: filename.split("_")[2],
+              caseDate: filename.split("_")[3],
+            });
+          }
+        }
+
+        filteredData = [...archiveData];
+      }
+
+      // 統計情報を更新
+      function updateStats() {
+        const totalCases = archiveData.length;
+        const uniqueDays = new Set(
+          archiveData.map((item) => `${item.year}-${item.month}-${item.day}`),
+        ).size;
+        const currentMonth = new Date().getMonth() + 1;
+        const currentMonthCases = archiveData.filter(
+          (item) =>
+            parseInt(item.month) === currentMonth &&
+            parseInt(item.year) === new Date().getFullYear(),
+        ).length;
+
+        document.getElementById("totalCases").textContent = totalCases;
+        document.getElementById("totalDays").textContent = uniqueDays;
+        document.getElementById("currentMonth").textContent = currentMonthCases;
+      }
+
+      // フィルターを設定
+      function populateFilters() {
+        const yearFilter = document.getElementById("yearFilter");
+        const monthFilter = document.getElementById("monthFilter");
+
+        const years = [...new Set(archiveData.map((item) => item.year))].sort();
+        const months = [
+          ...new Set(archiveData.map((item) => item.month)),
+        ].sort();
+
+        yearFilter.innerHTML = '<option value="">すべて</option>';
+        years.forEach((year) => {
+          yearFilter.innerHTML += `<option value="${year}">${year}年</option>`;
+        });
+
+        monthFilter.innerHTML = '<option value="">すべて</option>';
+        months.forEach((month) => {
+          monthFilter.innerHTML += `<option value="${month}">${parseInt(month)}月</option>`;
+        });
+      }
+
+      // アーカイブを表示
+      function displayArchive() {
+        const grid = document.getElementById("archiveGrid");
+        const loading = document.getElementById("loading");
+        const noResults = document.getElementById("noResults");
+
+        loading.style.display = "none";
+
+        if (filteredData.length === 0) {
+          grid.style.display = "none";
+          noResults.style.display = "block";
+          return;
+        }
+
+        grid.style.display = "grid";
+        noResults.style.display = "none";
+
+        grid.innerHTML = filteredData
+          .map(
+            (item) => `
+                <div class="archive-item" onclick="viewCase('${item.path}', '${item.filename}')">
+                    <div class="case-title">${item.filename.replace(".md", "")}</div>
+                    <div class="case-date">📅 ${item.year}年${parseInt(item.month)}月${parseInt(item.day)}日</div>
+                    <div class="case-path">📁 ${item.path}</div>
+                    <div class="case-preview">
+                        ケース ID: ${item.caseId} | 名前: ${item.name} | 日付: ${item.caseDate}
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      // 検索を実行
+      function performSearch() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        if (!searchTerm) {
+          filteredData = [...archiveData];
+        } else {
+          filteredData = archiveData.filter(
+            (item) =>
+              item.filename.toLowerCase().includes(searchTerm) ||
+              item.name.toLowerCase().includes(searchTerm) ||
+              item.caseId.toLowerCase().includes(searchTerm) ||
+              item.caseDate.toLowerCase().includes(searchTerm) ||
+              item.path.toLowerCase().includes(searchTerm),
+          );
+        }
+
+        applyFilters();
+        sortArchive();
+      }
+
+      // 検索をクリア
+      function clearSearch() {
+        document.getElementById("searchInput").value = "";
+        filteredData = [...archiveData];
+        applyFilters();
+        sortArchive();
+      }
+
+      // フィルターを適用
+      function applyFilters() {
+        const yearFilter = document.getElementById("yearFilter").value;
+        const monthFilter = document.getElementById("monthFilter").value;
+
+        filteredData = filteredData.filter((item) => {
+          if (yearFilter && item.year !== yearFilter) return false;
+          if (monthFilter && item.month !== monthFilter) return false;
+          return true;
+        });
+      }
+
+      // フィルター変更時
+      function filterArchive() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        if (!searchTerm) {
+          filteredData = [...archiveData];
+        } else {
+          filteredData = archiveData.filter(
+            (item) =>
+              item.filename.toLowerCase().includes(searchTerm) ||
+              item.name.toLowerCase().includes(searchTerm) ||
+              item.caseId.toLowerCase().includes(searchTerm) ||
+              item.caseDate.toLowerCase().includes(searchTerm) ||
+              item.path.toLowerCase().includes(searchTerm),
+          );
+        }
+
+        applyFilters();
+        sortArchive();
+      }
+
+      // ソート
+      function sortArchive() {
+        const sortValue = document.getElementById("sortSelect").value;
+
+        switch (sortValue) {
+          case "date-desc":
+            filteredData.sort((a, b) => b.date - a.date);
+            break;
+          case "date-asc":
+            filteredData.sort((a, b) => a.date - b.date);
+            break;
+          case "name-asc":
+            filteredData.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case "name-desc":
+            filteredData.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        }
+
+        displayArchive();
+      }
+
+      // ケースを表示
+      function viewCase(path, filename) {
+        const modal = document.getElementById("modal");
+        const modalBody = document.getElementById("modalBody");
+
+        modalBody.innerHTML = `
+                <h2>${filename.replace(".md", "")}</h2>
+                <p><strong>パス:</strong> ${path}</p>
+                <p><strong>GitHubで表示:</strong> <a href="https://github.com/Shizuka-Yuu/x-case/blob/main/${path}" target="_blank">こちらをクリック</a></p>
+                <hr>
+                <p><em>このコンテンツはGitHubリポジトリでご確認いただけます。</em></p>
+            `;
+
+        modal.style.display = "block";
+      }
+
+      // モーダルを閉じる
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      // ウィンドウ外クリックでモーダルを閉じる
+      window.onclick = function (event) {
+        const modal = document.getElementById("modal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // ページ読み込み時に初期化
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
