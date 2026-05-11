@@ -328,7 +328,7 @@ function shareToX() {
   const title = document.getElementById("caseTitle").textContent;
   const text = `${title} - ${url}`;
 
-  const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  const xUrl = `${CONFIG.external.twitter.shareUrl}?text=${encodeURIComponent(text)}`;
   window.open(xUrl, "_blank");
 }
 

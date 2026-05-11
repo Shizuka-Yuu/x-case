@@ -63,6 +63,18 @@ const CONFIG = {
       high: "high.webp",
     },
   },
+
+  // 外部サービス設定
+  external: {
+    twitter: {
+      shareUrl: "https://twitter.com/intent/tweet",
+    },
+    html2canvas: {
+      cdnUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
+      version: "1.4.1",
+    },
+  },
 };
 
 // グローバル変数としてCONFIGをエクスポート
