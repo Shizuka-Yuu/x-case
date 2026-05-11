@@ -52,6 +52,17 @@ const CONFIG = {
     { value: "name-asc", label: "名前 (A-Z)" },
     { value: "name-desc", label: "名前 (Z-A)" },
   ],
+
+  // 背景画像設定
+  backgroundImages: {
+    basePath: "img",
+    images: {
+      low: "low.png",
+      normal: "normal.png",
+      mid: "mid.png",
+      high: "high.png",
+    },
+  },
 };
 
 // グローバル変数としてCONFIGをエクスポート

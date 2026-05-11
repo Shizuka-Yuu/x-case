@@ -140,7 +140,7 @@ timestamp: (投稿日時)
 ### STEP 3: 分析の実行
 上記の「X-Event-Analyzer v2.0」分析基準に従い、STEP 1とSTEP 2で得たデータをインプットとして分析を実行せよ。
 
-**出力形式:** 分析結果は`docs/structure_template.md`に沿って出力すること。
+**出力形式:** 分析結果は`template\structure_template.md`に沿って出力すること。
 
 ### STEP 4: 最終出力
 以下のファイル名でレポートを生成せよ。
