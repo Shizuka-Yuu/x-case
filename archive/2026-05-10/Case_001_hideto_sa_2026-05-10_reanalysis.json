@@ -1,0 +1,123 @@
+{
+  "case_id": "001",
+  "case_type": "reanalysis",
+  "filename": "Case_001_hideto_sa_2026-05-10_reanalysis",
+  "analysis_date": "2026-05-10",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/hideto_sa/status/2052970571236037050",
+    "author": "坂井秀人",
+    "author_handle": "@hideto_sa",
+    "post_date": "2026-05-09T13:35:00",
+    "verified": true,
+    "background_context": "複合的背景要因（推定）"
+  },
+  "metrics": {
+    "views": 2362734,
+    "replies": 2404,
+    "reposts": 1067,
+    "likes": 2193,
+    "bookmarks": 659,
+    "controversy_ratio": 1.10,
+    "bookmark_rate": 0.028,
+    "text_length": 486
+  },
+  "content_analysis": {
+    "content_type": "長文テキスト投稿",
+    "text_content": "過去の幸福喪失、現状の鬱状態、反省表明、リプライ要求",
+    "media": "なし",
+    "author_attributes": {
+      "name": "坂井秀人",
+      "verification": "認証済み（青バッジ）",
+      "profile": "会社複数オーナー、馬主、ヘリR44、フェラーリ488spider→ウルティメ ロードスター、AMEXセンチュリオン保有"
+    },
+    "timeline_facts": {
+      "T1_origin": "第三者によるコンプライアンス・倫理に反する不適切な映像流出が起因している可能性が高い。SNS上で炎上したと見られる。",
+      "T2_initial": "投稿者本人による当初の否定、および虚偽による隠蔽の試行が背景にあると推定される。後に失敗したと見られる。",
+      "T3_confirmation": "投稿者本人が事実を認め、家族（妻）の信用喪失と社会的損失を公表した影響を受けたと考えられる。",
+      "T4_current_post": "39年間の蓄積の喪失、反省、および「リプライによる励まし」を求める長文ポストとして機能していると推定される。"
+    }
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "土曜日の子供たちとの日常風景（具体的・感情的）",
+      "turning_point": "「…鬱」による感情状態表明",
+      "assumption": "「あの時、誰かが止めてくれたら…」3つの条件文",
+      "fact_confirmation": "「家族もお金もなくなって」「今の自分には何もない」",
+      "explanation": "成功体験とSNS投稿の満足感",
+      "recognition_shift": "「友人だと思ってた誰からも連絡は無い」",
+      "past_comparison": "6万の家賃滞納、妻との約束",
+      "self_analysis": "「お金に取り憑かれてた」「僕が間違ってた…認めるから」",
+      "conclusion": "「いまこの時だけでも優しいリプもらえませんか？いまとても弱ってます…」"
+    },
+    "intended_behavior": {
+      "physical_request": "共感・励ましを促す「返信」機能",
+      "psychological_request": "反省表明に対する「いいね」による支持表明",
+      "amplification": "類似経験者による「リポスト」による共感ネットワーク形成"
+    },
+    "structural_features": "損失の具体性から抽象的な反省へ、最後に具体的な要求へ移行する段階的構成。時系列事実（映像流出・事実認定）と直接的な関連性を明示しないことで、読解の余地を確保している可能性がある。"
+  },
+  "engagement_analysis": {
+    "calculations": {
+      "controversy_ratio": 1.10,
+      "retention_density": "長文486文字による読了時間推計1.5-2分",
+      "utility_aspiration_score": 0.028
+    },
+    "characteristics": {
+      "type": "議論活性化型",
+      "description": "Controversy Ratio 110%は通常バズ（0.2-0.5%）より大幅に高い水準",
+      "engagement_depth": "深い滞在：長文による読了時間延長がアルゴリズム評価に貢献",
+      "save_intent": "低保存意欲：ブックマーク率0.03%は一時的共感の特性を反映"
+    },
+    "anomaly_analysis": {
+      "controversy_ratio_meaning": "Controversy Ratio 110%は「議論・対話型」エンゲージメントの典型。複合的背景要因（映像流出・金銭的損失）と感情的決意の組み合わせが反論・共感の双方を誘発していると推定される。"
+    }
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "text_volume": "486文字（通常投稿の3-4倍の読了時間）",
+      "media_composition": "テキストのみ（高速ロード・深い読解）",
+      "thread": "なし（単発完結型）"
+    },
+    "interaction_induction": {
+      "reply_induction": "「優しいリプもらえませんか？」「いまとても弱ってます…」による直接的呼びかけ",
+      "quote_rt_trigger": "自己批判内容による異論・反論の余地提供",
+      "reaction_points": "過去の成功体験列挙による価値観の対比"
+    },
+    "adaptation_strategy": {
+      "dwell_time": "長文読解によるページ滞在延長",
+      "discussion_activation": "高Controversy Ratioによるアルゴリズム評価向上",
+      "emotional_resonance": "複合的損失体験による共感ネットワークの形成"
+    }
+  },
+  "structural_judgment": {
+    "promotion_score": 75,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 25,
+        "factors": [
+          "実際の損失体験に基づく反省表明",
+          "具体的な自己批判の展開",
+          "段階的構成による論理的一貫性"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 75,
+        "factors": [
+          "認証済みアカウントによる信頼性の活用",
+          "議論誘発によるエンゲージメント最大化戦略",
+          "過去の成功体験（車、時計、ブランド品等）の具体的列挙",
+          "長文構成による滞在時間延長の意図的設計",
+          "リプライ要求による直接的注目集め",
+          "複合的背景要因を利用した話題性の創出"
+        ]
+      }
+    },
+    "conclusion": "個人的な損失体験を共有しつつ、議論活性化と深い共感を通じてインフルエンサーとしての影響力を維持・回復する戦略的コミュニケーション。複合的背景要因を活用した共感マーケティングとして機能している可能性が高い。"
+  },
+  "metadata": {
+    "analysis_completion_date": "2026-05-10",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "expression_policy": "推定形・柔らかい表現による客観的分析"
+  }
+}
