@@ -57,10 +57,10 @@ const CONFIG = {
   backgroundImages: {
     basePath: "img",
     images: {
-      low: "low.png",
-      normal: "normal.png",
-      mid: "mid.png",
-      high: "high.png",
+      low: "low.webp",
+      normal: "normal.webp",
+      mid: "mid.webp",
+      high: "high.webp",
     },
   },
 };
