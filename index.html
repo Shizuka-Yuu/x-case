@@ -4,408 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>X-case - Archive Viewer</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 2rem 0;
-        margin-bottom: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .header-content {
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .subtitle {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
-
-      .controls {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .search-box {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .search-input {
-        flex: 1;
-        min-width: 200px;
-        padding: 0.75rem;
-        border: 2px solid #e1e5e9;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: border-color 0.3s;
-      }
-
-      .search-input:focus {
-        outline: none;
-        border-color: #667eea;
-      }
-
-      .btn {
-        padding: 0.75rem 1.5rem;
-        background: #667eea;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s;
-      }
-
-      .btn:hover {
-        background: #5a6fd8;
-      }
-
-      .sort-controls {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .sort-select {
-        padding: 0.5rem;
-        border: 2px solid #e1e5e9;
-        border-radius: 5px;
-        font-size: 1rem;
-      }
-
-      .stats {
-        background: white;
-        padding: 1rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .stat-item {
-        text-align: center;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #667eea;
-      }
-
-      .stat-label {
-        font-size: 0.9rem;
-        color: #666;
-      }
-
-      .archive-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .archive-item {
-        background: white;
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-        cursor: pointer;
-      }
-
-      .archive-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      .case-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 0.5rem;
-      }
-
-      .case-date {
-        color: #666;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .case-path {
-        color: #999;
-        font-size: 0.8rem;
-        font-family: monospace;
-        margin-bottom: 1rem;
-      }
-
-      .case-preview {
-        background: #f8f9fa;
-        padding: 0.75rem;
-        border-radius: 5px;
-        font-size: 0.9rem;
-        line-height: 1.4;
-        max-height: 100px;
-        overflow-y: auto;
-      }
-
-      .no-results {
-        text-align: center;
-        padding: 3rem;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .loading {
-        text-align: center;
-        padding: 2rem;
-        font-size: 1.2rem;
-        color: #666;
-      }
-
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-
-      .modal-content {
-        background-color: white;
-        margin: 5% auto;
-        padding: 2rem;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 800px;
-        max-height: 80vh;
-        overflow-y: auto;
-      }
-
-      .case-overview {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-      }
-
-      .overview-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 0.5rem;
-      }
-
-      .overview-item {
-        padding: 0.5rem;
-        background: white;
-        border-radius: 4px;
-        border-left: 4px solid #667eea;
-      }
-
-      .metrics-section {
-        margin-bottom: 1.5rem;
-      }
-
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .metric-item {
-        text-align: center;
-        padding: 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 8px;
-      }
-
-      .metric-value {
-        display: block;
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
-      }
-
-      .metric-label {
-        font-size: 0.8rem;
-        opacity: 0.9;
-      }
-
-      .content-section {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-      }
-
-      .content-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 0.5rem;
-      }
-
-      .content-item {
-        background: white;
-        padding: 0.75rem;
-        border-radius: 4px;
-      }
-
-      .text-content {
-        margin-top: 1rem;
-        padding: 1rem;
-        background: white;
-        border-radius: 4px;
-        border-left: 4px solid #28a745;
-      }
-
-      .judgment-section {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-      }
-
-      .judgment-score {
-        margin: 1rem 0;
-      }
-
-      .score-bar {
-        width: 100%;
-        height: 20px;
-        background: #e9ecef;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 0.5rem;
-      }
-
-      .score-fill {
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          #28a745 0%,
-          #ffc107 50%,
-          #dc3545 100%
-        );
-        transition: width 0.3s ease;
-      }
-
-      .score-text {
-        font-weight: bold;
-        color: #495057;
-      }
-
-      .judgment-conclusion {
-        margin-top: 1rem;
-        padding: 1rem;
-        background: white;
-        border-radius: 4px;
-        border-left: 4px solid #ffc107;
-      }
-
-      .links-section {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-      }
-
-      .links-section a {
-        color: #667eea;
-        text-decoration: none;
-        margin-right: 1rem;
-      }
-
-      .links-section a:hover {
-        text-decoration: underline;
-      }
-
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      .close:hover {
-        color: #000;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 10px;
-        }
-
-        h1 {
-          font-size: 2rem;
-        }
-
-        .archive-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .search-box {
-          flex-direction: column;
-        }
-
-        .sort-controls {
-          flex-direction: column;
-          align-items: stretch;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="docs/styles.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <div class="header-content">
-          <h1>X-case</h1>
-          <p class="subtitle">Archive Viewer - 研究データアーカイブ</p>
-        </div>
+        <div class="header-content" id="headerContent"></div>
       </header>
 
       <div class="controls">
@@ -414,19 +18,18 @@
             type="text"
             id="searchInput"
             class="search-input"
-            placeholder="ケース名、日付、内容で検索..."
+            placeholder="${CONFIG.search.placeholder}"
           />
           <button class="btn" onclick="performSearch()">検索</button>
           <button class="btn" onclick="clearSearch()">クリア</button>
         </div>
         <div class="sort-controls">
           <label for="sortSelect">並び替え:</label>
-          <select id="sortSelect" class="sort-select" onchange="sortArchive()">
-            <option value="date-desc">日付 (新しい順)</option>
-            <option value="date-asc">日付 (古い順)</option>
-            <option value="name-asc">名前 (A-Z)</option>
-            <option value="name-desc">名前 (Z-A)</option>
-          </select>
+          <select
+            id="sortSelect"
+            class="sort-select"
+            onchange="sortArchive()"
+          ></select>
           <label for="yearFilter">年份:</label>
           <select
             id="yearFilter"
@@ -461,13 +64,13 @@
         </div>
       </div>
 
-      <div id="loading" class="loading">アーカイブデータを読み込み中...</div>
+      <div id="loading" class="loading">${CONFIG.ui.loadingMessage}</div>
 
       <div id="archiveGrid" class="archive-grid" style="display: none"></div>
 
       <div id="noResults" class="no-results" style="display: none">
-        <h3>該当するケースが見つかりませんでした</h3>
-        <p>検索条件を変更して再度お試しください</p>
+        <h3>${CONFIG.ui.noResultsMessage}</h3>
+        <p>${CONFIG.ui.noResultsSubMessage}</p>
       </div>
     </div>
 
@@ -478,23 +81,25 @@
       </div>
     </div>
 
+    <script src="docs/config.js"></script>
     <script>
       let archiveData = [];
       let filteredData = [];
 
-      // アーカイブデータの構造を定義
-      const archiveStructure = {
-        "2026-05-10": [
-          "Case_001_hideto_sa_2026-05-10_reanalysis.md",
-          "Case_002_hayakore_2026-05-10.md",
-          "Case_003_gihuboy_2026-05-10.md",
-          "Case_004_tesuta001_2026-05-10.md",
-        ],
-        "2026-05-11": ["Case_005_okada_junichi_2026-05-11.md"],
-      };
-
       // 初期化
       async function init() {
+        // UI要素をCONFIGから設定
+        document.getElementById("headerContent").innerHTML = `
+          <h1>${CONFIG.ui.title}</h1>
+          <p class="subtitle">${CONFIG.ui.subtitle}</p>
+        `;
+
+        // ソートオプションを設定
+        const sortSelect = document.getElementById("sortSelect");
+        CONFIG.sortOptions.forEach((option) => {
+          sortSelect.innerHTML += `<option value="${option.value}">${option.label}</option>`;
+        });
+
         await loadArchiveData();
         updateStats();
         populateFilters();
@@ -505,7 +110,9 @@
       async function loadArchiveData() {
         archiveData = [];
 
-        for (const [dateDir, files] of Object.entries(archiveStructure)) {
+        for (const [dateDir, files] of Object.entries(
+          CONFIG.archiveStructure,
+        )) {
           for (const filename of files) {
             const [year, month, day] = dateDir.split("-");
             archiveData.push({
@@ -694,7 +301,7 @@
         // JSONファイルのパスに変換
         const jsonPath = path.replace(".md", ".json");
 
-        modalBody.innerHTML = '<div class="loading">読み込み中...</div>';
+        modalBody.innerHTML = `<div class="loading">${CONFIG.modal.loadingMessage}</div>`;
         modal.style.display = "block";
 
         try {
@@ -711,10 +318,10 @@
           modalBody.innerHTML = `
               <h2>${filename.replace(".md", "")}</h2>
               <p><strong>パス:</strong> ${path}</p>
-              <p><strong>GitHubで表示:</strong> <a href="https://github.com/Shizuka-Yuu/x-case/blob/main/${path}" target="_blank">こちらをクリック</a></p>
-              <p><strong>JSON表示:</strong> <a href="https://github.com/Shizuka-Yuu/x-case/blob/main/${jsonPath}" target="_blank">${filename.replace(".md", ".json")}</a></p>
+              <p><strong>GitHubで表示:</strong> <a href="${CONFIG.github.baseUrl}/${path}" target="_blank">こちらをクリック</a></p>
+              <p><strong>JSON表示:</strong> <a href="${CONFIG.github.baseUrl}/${jsonPath}" target="_blank">${filename.replace(".md", ".json")}</a></p>
               <hr>
-              <p><em>このコンテンツはGitHubリポジトリでご確認いただけます。</em></p>
+              <p><em>${CONFIG.modal.fallbackMessage}</em></p>
           `;
         }
       }
@@ -835,8 +442,8 @@
         html += `
             <div class="links-section">
                 <h3>関連リンク</h3>
-                <p><strong>GitHub (Markdown):</strong> <a href="https://github.com/Shizuka-Yuu/x-case/blob/main/${originalPath}" target="_blank">元ファイル</a></p>
-                <p><strong>GitHub (JSON):</strong> <a href="https://github.com/Shizuka-Yuu/x-case/blob/main/${originalPath.replace(".md", ".json")}" target="_blank">JSONファイル</a></p>
+                <p><strong>GitHub (Markdown):</strong> <a href="${CONFIG.github.baseUrl}/${originalPath}" target="_blank">元ファイル</a></p>
+                <p><strong>GitHub (JSON):</strong> <a href="${CONFIG.github.baseUrl}/${originalPath.replace(".md", ".json")}" target="_blank">JSONファイル</a></p>
                 ${data.target?.url ? `<p><strong>元ポスト:</strong> <a href="${data.target.url}" target="_blank">Xで表示</a></p>` : ""}
             </div>
         `;
