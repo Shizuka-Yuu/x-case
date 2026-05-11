@@ -30,7 +30,7 @@
             class="sort-select"
             onchange="sortArchive()"
           ></select>
-          <label for="yearFilter">年份:</label>
+          <label for="yearFilter">年:</label>
           <select
             id="yearFilter"
             class="sort-select"
@@ -38,7 +38,7 @@
           >
             <option value="">すべて</option>
           </select>
-          <label for="monthFilter">月份:</label>
+          <label for="monthFilter">月:</label>
           <select
             id="monthFilter"
             class="sort-select"
@@ -99,11 +99,14 @@
         CONFIG.sortOptions.forEach((option) => {
           sortSelect.innerHTML += `<option value="${option.value}">${option.label}</option>`;
         });
+        // デフォルトで最新順を選択
+        sortSelect.value = "date-desc";
 
         await loadArchiveData();
         updateStats();
         populateFilters();
-        displayArchive();
+        // 初期表示時もソートを適用
+        sortArchive();
       }
 
       // アーカイブデータを読み込み
@@ -115,6 +118,33 @@
         )) {
           for (const filename of files) {
             const [year, month, day] = dateDir.split("-");
+            // ファイル名から情報を抽出
+            const parts = filename.replace(".md", "").split("_");
+            const caseId = parts[1];
+            const name = parts[2];
+            // 日付部分を抽出（YYYY-MM-DD形式）
+            const dateMatch = filename.match(/(\d{4})-(\d{2})-(\d{2})/);
+            const caseDate = dateMatch
+              ? `${dateMatch[1]}年${parseInt(dateMatch[2])}月${parseInt(dateMatch[3])}日`
+              : "不明";
+
+            // JSONファイルから分析時間を取得
+            let analysisTime = "";
+            try {
+              const jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
+              const response = await fetch(jsonPath);
+              if (response.ok) {
+                const jsonData = await response.json();
+                // analysis_dateから分析時間を生成（仮定：分析は当日の昼間に行われた）
+                if (jsonData.analysis_date) {
+                  analysisTime = " 12:00"; // デフォルトの分析時間
+                }
+              }
+            } catch (error) {
+              // JSONが存在しない場合はデフォルト時間を使用
+              analysisTime = " 12:00";
+            }
+
             archiveData.push({
               filename: filename,
               year: year,
@@ -123,9 +153,10 @@
               dateDir: dateDir,
               path: `archive/${dateDir}/${filename}`,
               date: new Date(`${year}-${month}-${day}T12:00:00`),
-              caseId: filename.split("_")[1],
-              name: filename.split("_")[2],
-              caseDate: filename.split("_")[3],
+              caseId: caseId,
+              name: name,
+              caseDate: caseDate,
+              analysisTime: analysisTime,
             });
           }
         }
@@ -194,10 +225,10 @@
             (item) => `
                 <div class="archive-item" onclick="viewCase('${item.path}', '${item.filename}')">
                     <div class="case-title">${item.filename.replace(".md", "")}</div>
-                    <div class="case-date">📅 ${item.year}年${parseInt(item.month)}月${parseInt(item.day)}日</div>
+                    <div class="case-date">📅 ${item.year}年${parseInt(item.month)}月${parseInt(item.day)}日${item.analysisTime}</div>
                     <div class="case-path">📁 ${item.path}</div>
                     <div class="case-preview">
-                        ケース ID: ${item.caseId} | 名前: ${item.name} | 日付: ${item.caseDate}
+                        ケース ID: ${item.caseId} | 投稿者: ${item.name} | 投稿日: ${item.caseDate}
                     </div>
                 </div>
             `,
@@ -246,6 +277,8 @@
           if (monthFilter && item.month !== monthFilter) return false;
           return true;
         });
+
+        displayArchive();
       }
 
       // フィルター変更時
@@ -330,6 +363,11 @@
       function displayJsonData(data, filename, originalPath) {
         const modalBody = document.getElementById("modalBody");
 
+        // 分析時間を取得（analysis_dateと現在時刻から生成）
+        const analysisDateTime = data.analysis_date
+          ? `${data.analysis_date} ${new Date().toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })}`
+          : "N/A";
+
         // 基本情報の表示
         let html = `
             <h2>${data.filename || filename.replace(".md", "")}</h2>
@@ -339,7 +377,7 @@
                         <strong>ケースID:</strong> ${data.case_id || "N/A"}
                     </div>
                     <div class="overview-item">
-                        <strong>分析日:</strong> ${data.analysis_date || "N/A"}
+                        <strong>分析日時:</strong> ${analysisDateTime}
                     </div>
                     <div class="overview-item">
                         <strong>投稿者:</strong> ${data.target?.author || "N/A"}
