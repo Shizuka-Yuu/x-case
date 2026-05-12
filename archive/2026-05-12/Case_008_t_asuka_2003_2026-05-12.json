@@ -1,0 +1,85 @@
+{
+  "case_id": "Case_008",
+  "target": {
+    "url": "https://x.com/t_asuka_2003/status/2053834220158812628",
+    "author": "Asuka",
+    "handle": "@t_asuka_2003",
+    "timestamp": "2026-05-11T22:46:00+09:00",
+    "analysis_timestamp": "2026-05-12T18:25:00+09:00",
+    "category": "動画視聴回数の多い順 1位（過去24時間）",
+    "content_type": "text_with_video",
+    "media_analysis": {
+      "video_thumbnail_url": "https://pbs.twimg.com/amplify_video_thumb/2053834134037094402/img/QK5u1P3LsFsEx7o6.jpg",
+      "dimensions": {
+        "width": 1950,
+        "height": 1300,
+        "aspect_ratio": "1.50"
+      },
+      "pixel_analysis": {
+        "brightness": "普通",
+        "contrast": "高コントラスト",
+        "dominant_colors": 5
+      },
+      "vision_analysis": {
+        "top_object": "lab coat, laboratory coat",
+        "confidence": 0.509,
+        "note": "動画の特定シーンを捉えたものと推測、投稿内容との乖離あり"
+      },
+      "ocr_analysis": {
+        "has_text": true,
+        "confidence": 49,
+        "note": "動画内のテロップや文字を認識しようとしているが精度が低い"
+      },
+      "contextual_role": "サムネイルは視聴者の興味を引くための視覚的フックとして機能、エンターテイメント系動画の内容を補完"
+    },
+    "author_attributes": {
+      "title": "プレミアムプラスのツイッタラー、22歳",
+      "followers": 14000,
+      "verified": true,
+      "account_created": "2024-08",
+      "profile": "面白いツイートと見やすいリプ欄を意識、ハイライト見て面白いと思ったらフォロー"
+    }
+  },
+  "metrics": {
+    "views": 24122039,
+    "replies": 2620,
+    "reposts": 9457,
+    "likes": 118117,
+    "bookmarks": 23083
+  },
+  "ratios": {
+    "controversy_ratio": 0.0222,
+    "retention_density": 0.0063,
+    "utility_aspiration_score": 0.00097
+  },
+  "analysis": {
+    "logical_structure": {
+      "introduction": "「【悲報】」という形式でエンターテイメント性を提示",
+      "development": "ヤンキーとチー牛の対立という物語性を描写",
+      "quote": "過去の人気投稿を引用し、コンテンツの連続性を示唆",
+      "conclusion": "「素人同士だと根性ある方が勝つ」という考察で締めくくり"
+    },
+    "intended_actions": {
+      "quote_rt_promotion": "面白いコンテンツの共有と二次創作を誘導",
+      "video_viewing": "埋め込み動画の再生を促進",
+      "reply_inducement": "コンテンツに関する感想や議論を促す",
+      "follow_promotion": "面白いコンテンツ提供者としての認知を求める"
+    },
+    "algorithm_factors": {
+      "dwell_time_generators": [
+        "短文でインパクトのある見出し",
+        "埋め込み動画が滞在時間を大幅に延長",
+        "高解像度のサムネイルが視聴を誘導",
+        "引用構造が過去の人気投稿との関連性を示唆"
+      ],
+      "interaction_inducement": [
+        "面白いコンテンツの共有を自然に促す",
+        "埋め込み動画の再生でエンゲージメントを深化",
+        "コンテンツに関する感想や議論を促す",
+        "エンターテイメント性の高さがフォローを促進"
+      ]
+    }
+  },
+  "promotion_score": 40,
+  "promotion_analysis": "この投稿はエンターテイメントコンテンツとしての性質が強く、直接的なプロモーションというよりは、投稿者自身のブランド構築が主目的と推定される。「面白いツイートと見やすいリプ欄を意識」というプロフィール通り、エンターテイナーとしてのポジションを確立しようとする意図が見られる。引用構造を利用することで、過去の成功事例との関連性を示唆し、コンテンツの質の高さをアピールしている。"
+}
