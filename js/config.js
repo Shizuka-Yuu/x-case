@@ -9,6 +9,13 @@ const CONFIG = {
       "Case_004_tesuta001_2026-05-10.md",
     ],
     "2026-05-11": ["Case_005_okada_junichi_2026-05-11.md"],
+    "2026-05-12": [
+      "Case_006_takaichi_sanae_2026-05-12.md",
+      "Case_007_komeo1144_2026-05-12.md",
+      "Case_008_t_asuka_2003_2026-05-12.md",
+      "Case_009_ydb_yokohama_2026-05-12.md",
+      "Case_010_shadowverse_jp_2026-05-12.md",
+    ],
   },
 
   // GitHubリポジトリ設定

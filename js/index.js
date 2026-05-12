@@ -24,37 +24,115 @@ async function init() {
   sortArchive();
 }
 
-// アーカイブデータを読み込み
+// アーカイブデータを読み込み（動的ディレクトリ構造対応）
 async function loadArchiveData() {
   archiveData = [];
 
+  try {
+    // archiveディレクトリの構造を取得
+    const archiveResponse = await fetch(
+      "https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive",
+    );
+    if (!archiveResponse.ok) {
+      console.error("Archive directory fetch failed");
+      return;
+    }
+
+    const archiveContents = await archiveResponse.json();
+
+    // ディレクトリごとに処理
+    for (const dir of archiveContents) {
+      if (dir.type !== "dir") continue;
+
+      const dateDir = dir.name;
+      const [year, month, day] = dateDir.split("-");
+
+      // 各日付ディレクトリ内のファイルを取得
+      const filesResponse = await fetch(
+        `https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive/${dateDir}`,
+      );
+      if (!filesResponse.ok) continue;
+
+      const files = await filesResponse.json();
+
+      // .mdファイルのみを処理
+      for (const file of files) {
+        if (!file.name.endsWith(".md")) continue;
+
+        const filename = file.name;
+        // ファイル名から情報を抽出
+        const parts = filename.replace(".md", "").split("_");
+        const caseId = parts[1];
+        const name = parts[2];
+
+        // 日付部分を抽出（YYYY-MM-DD形式）
+        const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
+
+        // JSONファイルから分析時間を取得
+        let analysisTime = "";
+        try {
+          const jsonPath = `https://raw.githubusercontent.com/Shizuka-Yuu/x-case/master/archive/${dateDir}/${filename.replace(".md", ".json")}`;
+          const jsonResponse = await fetch(jsonPath);
+          if (jsonResponse.ok) {
+            const jsonData = await jsonResponse.json();
+            // analysis_timestampから分析時間を生成
+            if (jsonData.analysis_timestamp) {
+              const analysisDate = new Date(jsonData.analysis_timestamp);
+              analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+            }
+          }
+        } catch (error) {
+          // JSONが存在しない場合はデフォルト時間を使用
+          analysisTime = " 12:00";
+        }
+
+        archiveData.push({
+          filename: filename,
+          year: year,
+          month: month,
+          day: day,
+          dateDir: dateDir,
+          path: `archive/${dateDir}/${filename}`,
+          date: new Date(`${year}-${month}-${day}T12:00:00`),
+          caseId: caseId,
+          name: name,
+          caseDate: caseDate,
+          analysisTime: analysisTime,
+        });
+      }
+    }
+  } catch (error) {
+    console.error(
+      "Dynamic directory loading failed, falling back to CONFIG:",
+      error,
+    );
+    // エラー時はCONFIGにフォールバック
+    await loadArchiveDataFromConfig();
+  }
+}
+
+// フォールバック関数（既存のCONFIGベース）
+async function loadArchiveDataFromConfig() {
   for (const [dateDir, files] of Object.entries(CONFIG.archiveStructure)) {
     for (const filename of files) {
       const [year, month, day] = dateDir.split("-");
-      // ファイル名から情報を抽出
       const parts = filename.replace(".md", "").split("_");
       const caseId = parts[1];
       const name = parts[2];
-      // 日付部分を抽出（YYYY-MM-DD形式）
-      const dateMatch = filename.match(/(\d{4})-(\d{2})-(\d{2})/);
-      const caseDate = dateMatch
-        ? `${dateMatch[1]}年${parseInt(dateMatch[2])}月${parseInt(dateMatch[3])}日`
-        : "不明";
+      const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
 
-      // JSONファイルから分析時間を取得
       let analysisTime = "";
       try {
-        const jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
+        const jsonPath = `https://raw.githubusercontent.com/Shizuka-Yuu/x-case/master/archive/${dateDir}/${filename.replace(".md", ".json")}`;
         const response = await fetch(jsonPath);
         if (response.ok) {
           const jsonData = await response.json();
-          // analysis_dateから分析時間を生成（仮定：分析は当日の昼間に行われた）
-          if (jsonData.analysis_date) {
-            analysisTime = " 12:00"; // デフォルトの分析時間
+          if (jsonData.analysis_timestamp) {
+            const analysisDate = new Date(jsonData.analysis_timestamp);
+            analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
           }
         }
       } catch (error) {
-        // JSONが存在しない場合はデフォルト時間を使用
         analysisTime = " 12:00";
       }
 
@@ -73,9 +151,9 @@ async function loadArchiveData() {
       });
     }
   }
-
-  filteredData = [...archiveData];
 }
+
+filteredData = [...archiveData];
 
 // 統計情報を更新
 function updateStats() {
