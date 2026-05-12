@@ -141,8 +141,13 @@ function updateThumbnailData(jsonData, title) {
   if (titleElement) titleElement.textContent = title;
 
   const caseIdElement = document.getElementById("thumbnailCaseId");
-  if (caseIdElement)
-    caseIdElement.textContent = `Case #${jsonData.case_id || "000"}`;
+  if (caseIdElement) {
+    // case_idから"Case_"プレフィックスを除去して重複を防ぐ
+    const cleanCaseId = jsonData.case_id
+      ? jsonData.case_id.replace(/^Case_/, "")
+      : "000";
+    caseIdElement.textContent = `Case #${cleanCaseId}`;
+  }
 
   // メトリクスデータを更新
   if (
