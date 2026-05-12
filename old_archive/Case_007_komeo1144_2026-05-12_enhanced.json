@@ -1,0 +1,157 @@
+{
+  "case_id": "007",
+  "case_type": "standard",
+  "filename": "Case_007_komeo1144_2026-05-12",
+  "analysis_date": "2026-05-12",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/komeo1144/status/2053784577173574078",
+    "author": "こめお / 世界で闘う料理人。",
+    "author_handle": "komeo1144",
+    "post_date": "2026-05-11T19:29:00+09:00",
+    "verified": false,
+    "background_context": "",
+    "category": "リプライの多い順 1位（過去24時間）",
+    "content_type": "text_with_image",
+    "external_links": [],
+    "analysis_timestamp": "2026-05-12T18:18:00+09:00"
+  },
+  "metrics": {
+    "views": 10855711,
+    "replies": 3812,
+    "reposts": 1778,
+    "likes": 7645,
+    "bookmarks": 1049,
+    "controversy_ratio": 0.499,
+    "retention_density": 0.0012,
+    "utility_aspiration_score": 0.000097,
+    "text_length": 0
+  },
+  "content_analysis": {
+    "content_type": "text_with_image",
+    "text_content": "",
+    "media": "不明",
+    "author_attributes": {
+      "name": "こめお / 世界で闘う料理人。",
+      "verification": "認証済みアカウント",
+      "followers": 106000,
+      "profile": "",
+      "account_type": "不明",
+      "title": "(株)Fooppy代表、割烹こめを統括料理長",
+      "account_created": "2012-01"
+    },
+    "media_analysis": {
+      "image_url": "https://pbs.twimg.com/media/HICBtzdbMAAKgCF?format=jpg&name=large",
+      "dimensions": {
+        "width": 1587,
+        "height": 1416,
+        "aspect_ratio": "1.12"
+      },
+      "pixel_analysis": {
+        "brightness": "普通",
+        "contrast": "高コントラスト",
+        "dominant_colors": 5
+      },
+      "vision_analysis": {
+        "top_object": "tray",
+        "confidence": 0.171,
+        "note": "確信度は低いが、料理を容器に置いている様子が推測される"
+      },
+      "ocr_analysis": {
+        "has_text": true,
+        "confidence": 46,
+        "note": "料理に関する文字を認識しようとしているが精度が低い"
+      }
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "議論の核心に直接回答（「中国産使ってます」）",
+      "development": "事実に基づく詳細な説明と誤解の解消",
+      "counterargument": "根拠なき批判への反駁と事実確認の要求",
+      "declaration": "ビジネス理念と今後の抱負"
+    },
+    "intended_behavior": {
+      "reply_promotion": "議論参加と意見表明を積極的に誘導",
+      "reply_encouragement": "事実確認や質問、批判への応答を要求",
+      "spread_suppression": "誤解の拡散を防ぐための詳細な説明",
+      "support_declaration": "ビジネス理念への共感と応援を求める"
+    },
+    "structural_features": ""
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": 0.499,
+      "retention_density": 0.0012,
+      "utility_aspiration_score": 0.000097
+    },
+    "characteristics": {},
+    "anomaly_analysis": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "dwell_time_generators": [
+        "長文で詳細な説明、読了に時間を要する",
+        "料理の画像が内容を視覚的に補強",
+        "高コントラストな画像が視覚的なインパクトを提供",
+        "最終更新があり、継続的な関与を示唆"
+      ]
+    },
+    "interaction_induction": {
+      "interaction_inducement": [
+        "議論の核心に触れることで積極的な返信を促す",
+        "詳細な反論が引用による議論の拡散を促進",
+        "防御的な姿勢と理念表明が共感または批判を誘発"
+      ]
+    },
+    "adaptation_strategy": {}
+  },
+  "author_analysis": {
+    "name": "こめお / 世界で闘う料理人。",
+    "handle": "komeo1144",
+    "followers": 106000,
+    "verified": false,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "2026-05-11T19:29:00+09:00",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 25,
+  "promotion_analysis": "この投稿は直接的なプロモーションというよりは、危機管理とブランド保護が主目的と推定される。中国産食材使用に関する批判に対して、事実に基づく詳細な反論を行うことで、ビジネスの信頼性を維持しようとする意図が見られる。ただし、最終部分での「世界に挑戦する」という理念表明が、間接的にビジネスのプロモーションとして機能している可能性がある。議論の中心にあることで、結果的に知名度向上に繋がっている。",
+  "structural_judgment": {
+    "score": 25,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 75,
+        "factors": [
+          "公式情報提供",
+          "透明性の確保",
+          "コミュニティへの貢献"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 25,
+        "factors": [
+          "ブランド認知度向上",
+          "エンゲージメント戦略",
+          "信頼性の活用"
+        ]
+      }
+    },
+    "conclusion": "この投稿は直接的なプロモーションというよりは、危機管理とブランド保護が主目的と推定される。中国産食材使用に関する批判に対して、事実に基づく詳細な反論を行うことで、ビジネスの信頼性を維持しようとする意図が見られる。ただし、最終部分での「世界に挑戦する」という理念表明が、間接的にビジネスのプロモーションとして機能している可能性がある。議論の中心にあることで、結果的に知名度向上に繋がっている。"
+  },
+  "metadata": {
+    "case_title": "Case #007",
+    "analysis_completion_date": "2026-05-12",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": "リプライの多い順 1位（過去24時間）"
+  }
+}

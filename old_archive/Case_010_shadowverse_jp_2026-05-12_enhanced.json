@@ -1,0 +1,190 @@
+{
+  "case_id": "010",
+  "case_type": "standard",
+  "filename": "Case_010_shadowverse_jp_2026-05-12",
+  "analysis_date": "jp_2026-05-12",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/shadowverse_jp/status/2053784472882204792",
+    "author": "Shadowverse: Worlds Beyond公式",
+    "author_handle": "shadowverse",
+    "post_date": "2026-05-11T19:29:00+09:00",
+    "verified": false,
+    "background_context": "",
+    "category": "シェアの多い順 1位（過去24時間）",
+    "content_type": "text_with_images",
+    "external_links": [
+      {
+        "url": "https://shadowverse-wb.com/ja/news/detail",
+        "description": "公式サイトの詳細記事"
+      }
+    ],
+    "analysis_timestamp": "2026-05-12T18:31:00+09:00"
+  },
+  "metrics": {
+    "views": 4500803,
+    "replies": 578,
+    "reposts": 8131,
+    "likes": 9171,
+    "bookmarks": 336,
+    "controversy_ratio": 0.063,
+    "retention_density": 0.004,
+    "utility_aspiration_score": 0.00007,
+    "text_length": 0
+  },
+  "content_analysis": {
+    "content_type": "text_with_images",
+    "text_content": "",
+    "media": "不明",
+    "author_attributes": {
+      "name": "Shadowverse: Worlds Beyond公式",
+      "verification": "認証済みアカウント",
+      "followers": 866000,
+      "profile": "ゲーム・イベント・大会などの情報をお知らせします",
+      "account_type": "不明",
+      "title": "次世代スマホカードゲーム公式アカウント",
+      "account_created": "2015-08"
+    },
+    "media_analysis": {
+      "image_1": {
+        "url": "https://pbs.twimg.com/media/HICB02gbcAA67ZL?format=jpg&name=large",
+        "dimensions": {
+          "width": 675,
+          "height": 1200,
+          "aspect_ratio": "0.56"
+        },
+        "pixel_analysis": {
+          "brightness": "暗い",
+          "contrast": "高コントラスト",
+          "dominant_colors": 5
+        },
+        "vision_analysis": {
+          "top_object": "projector",
+          "confidence": 0.338,
+          "note": "ゲーム関連の視覚的要素と推測"
+        },
+        "ocr_analysis": {
+          "has_text": true,
+          "confidence": 48,
+          "note": "ゲーム関連テキストを認識"
+        },
+        "contextual_role": "ゲームの視覚的要素として投稿内容を補完"
+      },
+      "image_2": {
+        "url": "https://pbs.twimg.com/media/HICB490awAA3Yqc?format=jpg&name=large",
+        "dimensions": {
+          "width": 1920,
+          "height": 1080,
+          "aspect_ratio": "1.78"
+        },
+        "pixel_analysis": {
+          "brightness": "暗い",
+          "contrast": "高コントラスト",
+          "dominant_colors": 5
+        },
+        "vision_analysis": {
+          "top_object": "web site, website, internet site, site",
+          "confidence": 0.377,
+          "note": "カード能力変更詳細の視覚的説明と推測"
+        },
+        "ocr_analysis": {
+          "has_text": true,
+          "confidence": 80,
+          "note": "「5月12日メンテナンス」「旧き天眼・ビバティー」等の重要情報を認識"
+        },
+        "contextual_role": "カード能力変更詳細の視覚的説明として機能"
+      }
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "【】括弧で重要情報を提示し、公式告知であることを明示",
+      "development": "具体的な変更内容と実施日時を明確に記述",
+      "supplement": "詳細情報への外部リンクを提供",
+      "conclusion": "ハッシュタグでコミュニティを特定"
+    },
+    "intended_behavior": {
+      "share_promotion": "ゲームコミュニティ内での情報共有を誘導",
+      "external_site_visit": "詳細な変更内容の確認を促進",
+      "discussion_participation": "バランス調整に関するプレイヤーの意見交換",
+      "information_spread": "重要ゲーム情報の共有を求める"
+    },
+    "structural_features": ""
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": 0.063,
+      "retention_density": 0.004,
+      "utility_aspiration_score": 0.00007
+    },
+    "characteristics": {},
+    "anomaly_analysis": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "dwell_time_generators": [
+        "簡潔で重要情報を先に提示",
+        "2枚の画像が詳細情報を視覚的に提供",
+        "詳細記事への誘導が滞在を延長",
+        "認証済みアカウントによる信頼性の高い情報"
+      ]
+    },
+    "interaction_induction": {
+      "interaction_inducement": [
+        "重要ゲーム情報がコミュニティ内共有を促す",
+        "詳細な変更内容へのリンクが確認を促す",
+        "#シャドバWBがゲームコミュニティを結集",
+        "信頼性の高い情報源として共有されやすい"
+      ]
+    },
+    "adaptation_strategy": {}
+  },
+  "author_analysis": {
+    "name": "Shadowverse: Worlds Beyond公式",
+    "handle": "shadowverse",
+    "followers": 866000,
+    "verified": false,
+    "profile": "ゲーム・イベント・大会などの情報をお知らせします",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "2026-05-11T19:29:00+09:00",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 20,
+  "promotion_analysis": "この投稿はゲームの公式情報提供が主目的であり、直接的なプロモーション要素は中程度と推定される。バランス調整という重要ゲーム情報をプレイヤーに伝えるための公式告知であり、ゲームの透明性と信頼性確保が主眼。ただし、公式サイトへの誘導やハッシュタグ使用により、ゲームコミュニティの活性化とエンゲージメント向上に寄与している。重要ゲーム情報の迅速な提供という形で、ゲームの信頼性とプレイヤー満足度をプロモーションしている。",
+  "structural_judgment": {
+    "score": 20,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 80,
+        "factors": [
+          "公式情報提供",
+          "透明性の確保",
+          "コミュニティへの貢献"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 20,
+        "factors": [
+          "ブランド認知度向上",
+          "エンゲージメント戦略",
+          "信頼性の活用"
+        ]
+      }
+    },
+    "conclusion": "この投稿はゲームの公式情報提供が主目的であり、直接的なプロモーション要素は中程度と推定される。バランス調整という重要ゲーム情報をプレイヤーに伝えるための公式告知であり、ゲームの透明性と信頼性確保が主眼。ただし、公式サイトへの誘導やハッシュタグ使用により、ゲームコミュニティの活性化とエンゲージメント向上に寄与している。重要ゲーム情報の迅速な提供という形で、ゲームの信頼性とプレイヤー満足度をプロモーションしている。"
+  },
+  "metadata": {
+    "case_title": "Case #010",
+    "analysis_completion_date": "jp_2026-05-12",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": "シェアの多い順 1位（過去24時間）"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "case_id": "Case_002",
+  "target": {
+    "url": "https://x.com/ydb_yokohama/status/2054021509015126151",
+    "author": "横浜DeNAベイスターズ",
+    "username": "@ydb_yokohama",
+    "post_date": "2026-05-12T11:11:00",
+    "category": "リプライの多い順",
+    "rank": 1
+  },
+  "author_profile": {
+    "name": "横浜DeNAベイスターズ",
+    "username": "@ydb_yokohama",
+    "followers": 545000,
+    "following": 77,
+    "posts_count": 31000,
+    "joined_date": "2018-06",
+    "verified": true,
+    "description": "横浜DeNAベイスターズ公式X(旧：Twitter)です。 ※画像の二次利用及び無断転載は禁止とさせていただきます SNSのガイドラインはこちらからご確認ください",
+    "website": "sp.baystars.co.jp"
+  },
+  "metrics": {
+    "views": 13405580,
+    "likes": 37385,
+    "reposts": 29357,
+    "replies": 3142,
+    "bookmarks": 2557,
+    "timestamp": "2026-05-12T11:11:00"
+  },
+  "content": {
+    "type": "text_with_link",
+    "text": "【福岡ソフトバンクホークスとのトレードについて】山本祐大選手と福岡ソフトバンクホークス所属の尾形崇斗選手、井上朋也選手の2選手によるトレードに合意いたしましたので、お知らせいたします。山本選手コメントはこちら",
+    "has_media": false,
+    "external_links": ["sp.baystars.co.jp/news/2026/05/0"],
+    "hashtags": ["#baystars"]
+  },
+  "analysis": {
+    "logical_structure": {
+      "introduction": "重要なお知らせであることを明示",
+      "development": "具体的な選手名と移籍内容",
+      "supplement": "詳細情報への誘導",
+      "branding": "球団ブランドの強化",
+      "intended_actions": ["情報確認", "外部アクセス", "意見表明", "拡散"],
+      "structural_features": "公式発表としての信頼性と情報の正確性を重視した構成"
+    },
+    "engagement_analysis": {
+      "controversy_ratio": 0.0841,
+      "controversy_ratio_percent": "8.41%",
+      "retention_density": 0.00279,
+      "retention_density_percent": "0.279%",
+      "utility_aspiration_score": 0.00019,
+      "utility_aspiration_score_percent": "0.019%",
+      "characteristics": [
+        "中程度のControversy Ratioによる議論誘発",
+        "低Retention Densityによる短い確認時間",
+        "低ブックマーク率による一時的ニュース消費"
+      ]
+    },
+    "algorithm_strategy": {
+      "dwell_time_factors": [
+        "重要ニュース性による関心の高さ",
+        "公式性による信頼性の高い情報",
+        "外部リンクによる詳細情報の提供"
+      ],
+      "interaction_inducement": [
+        "議論の核心となる感情的テーマ",
+        "ファンとしての立場表明の自然な促進",
+        "重要な球団ニュースとしての拡散促進"
+      ],
+      "adaptation_strategies": [
+        "タイムリー性による最新情報の迅速提供",
+        "公式性の活用による信頼性の最大化",
+        "コミュニティ活性化によるエンゲージメント増加"
+      ]
+    }
+  },
+  "promotion_score": 15,
+  "judgment_basis": {
+    "positive_elements": {
+      "percentage": 85,
+      "factors": [
+        "公式発表としての情報提供義務の遂行",
+        "ファンへの正確かつ迅速な情報伝達",
+        "透明性の高い公式対応",
+        "外部リンクによる詳細情報の提供"
+      ]
+    },
+    "promotion_elements": {
+      "percentage": 15,
+      "factors": [
+        "トレードという注目度の高い話題の活用",
+        "球団の公式性と信頼性の強化",
+        "ファンエンゲージメントの促進",
+        "ハッシュタグによるブランド露出"
+      ]
+    }
+  },
+  "conclusion": "本ポストは公式情報提供が主目的であり、プロモーション要素は副次的。球団としての情報伝達義務を果たす構造が支配的で、商業的プロモーション意図は低い。",
+  "analysis_metadata": {
+    "completed_at": "2026-05-13T01:05:00",
+    "method": "X-Event-Analyzer v2.0（汎用型）",
+    "analyst": "Cascade AI"
+  }
+}

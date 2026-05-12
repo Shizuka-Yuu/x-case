@@ -1,0 +1,155 @@
+{
+  "case_id": "006",
+  "case_type": "standard",
+  "filename": "Case_006_takaichi_sanae_2026-05-12",
+  "analysis_date": "sanae_2026-05-12",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/takaichi_sanae/status/2054031300580004120",
+    "author": "高市早苗",
+    "author_handle": "takaichi",
+    "post_date": "2026-05-12T11:49:00+09:00",
+    "verified": false,
+    "background_context": "",
+    "category": "いいねの多い順 1位（過去24時間）",
+    "content_type": "text_with_image",
+    "external_links": [],
+    "analysis_timestamp": "2026-05-12T18:02:00+09:00"
+  },
+  "metrics": {
+    "views": 5272226,
+    "replies": 2983,
+    "reposts": 13152,
+    "likes": 177862,
+    "bookmarks": 2745,
+    "controversy_ratio": 0.0168,
+    "retention_density": 0.036,
+    "utility_aspiration_score": 0.00052,
+    "text_length": 0
+  },
+  "content_analysis": {
+    "content_type": "text_with_image",
+    "text_content": "",
+    "media": "不明",
+    "author_attributes": {
+      "name": "高市早苗",
+      "verification": "認証済みアカウント",
+      "followers": 2878000,
+      "profile": "",
+      "account_type": "不明",
+      "title": "衆議院議員、自由民主党奈良県第2選挙区支部長",
+      "account_created": "2010-11"
+    },
+    "media_analysis": {
+      "image_url": "https://pbs.twimg.com/media/HIFa1kAagAAXaw_?format=jpg&name=large",
+      "dimensions": {
+        "width": 1587,
+        "height": 1416,
+        "aspect_ratio": "1.12"
+      },
+      "pixel_analysis": {
+        "brightness": "普通",
+        "contrast": "高コントラスト",
+        "dominant_colors": 5
+      },
+      "vision_analysis": {
+        "top_object": "tray",
+        "confidence": 0.171,
+        "note": "確信度は低いが、花束を容器に置いている様子が推測される"
+      },
+      "ocr_analysis": {
+        "has_text": true,
+        "confidence": 46,
+        "note": "シールの文字を認識しようとしているが精度が低い"
+      }
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "政治家同士の個人的なやり取り（月曜日に鈴木大臣から花束を贈られた）",
+      "development": "母の日という文脈からの意外性（「お母さん」の上に「お姉さん」のシール）",
+      "conclusion": "個人的な感情の表現（気遣いへの喜びと感謝）"
+    },
+    "intended_behavior": {
+      "reply_promotion": "政治家の人間的な側面への共感やコメント",
+      "repost_encouragement": "政治の温かさというポジティブなメッセージの拡散",
+      "like_request": "感動的なエピソードへの共鳴",
+      "bookmark_value": "政治家の人間味を記録する価値"
+    },
+    "structural_features": ""
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": 0.0168,
+      "retention_density": 0.036,
+      "utility_aspiration_score": 0.00052
+    },
+    "characteristics": {},
+    "anomaly_analysis": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "dwell_time_generators": [
+        "3行構成で読了負担が少ない",
+        "花束の画像が感情を視覚的に補強",
+        "単発投稿で完結"
+      ]
+    },
+    "interaction_induction": {
+      "interaction_inducement": [
+        "政治家の人間的な側面へのコメントを自然に促す",
+        "「お姉さんありがとう」というユニークなエピソードが引用を促す",
+        "政治の温かさというテーマがポジティブな拡散を生む"
+      ]
+    },
+    "adaptation_strategy": {}
+  },
+  "author_analysis": {
+    "name": "高市早苗",
+    "handle": "takaichi",
+    "followers": 2878000,
+    "verified": false,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "2026-05-12T11:49:00+09:00",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 35,
+  "promotion_analysis": "この投稿は直接的な政治的プロモーションというよりは、「政治家の人間味」という間接的なイメージ戦略として機能している可能性が高い。鈴木大臣との個人的なやり取りを通じて、政権内部の良好な関係性を示唆し、有権者に安心感を与える効果が見込まれる。ただし、純粋な個人的な感謝の表現とも解釈できるため、プロモーションとしての意図は中程度と評価する。",
+  "structural_judgment": {
+    "score": 35,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 65,
+        "factors": [
+          "公式情報提供",
+          "透明性の確保",
+          "コミュニティへの貢献"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 35,
+        "factors": [
+          "ブランド認知度向上",
+          "エンゲージメント戦略",
+          "信頼性の活用"
+        ]
+      }
+    },
+    "conclusion": "この投稿は直接的な政治的プロモーションというよりは、「政治家の人間味」という間接的なイメージ戦略として機能している可能性が高い。鈴木大臣との個人的なやり取りを通じて、政権内部の良好な関係性を示唆し、有権者に安心感を与える効果が見込まれる。ただし、純粋な個人的な感謝の表現とも解釈できるため、プロモーションとしての意図は中程度と評価する。"
+  },
+  "metadata": {
+    "case_title": "Case #006",
+    "analysis_completion_date": "sanae_2026-05-12",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": "いいねの多い順 1位（過去24時間）"
+  }
+}

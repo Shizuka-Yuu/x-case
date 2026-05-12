@@ -1,0 +1,111 @@
+{
+  "case_id": "004",
+  "case_type": "standard",
+  "filename": "Case_004_tesuta001_2026-05-10",
+  "analysis_date": "2026-05-10",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/tesuta001/status/2053407866489577570",
+    "author": "テスタ",
+    "author_handle": "tesuta001",
+    "post_date": "2026-05-10T18:32:00",
+    "verified": true,
+    "background_context": "投資哲学ポスト分析"
+  },
+  "metrics": {
+    "views": 442577,
+    "replies": 156,
+    "reposts": 276,
+    "likes": 3392,
+    "bookmarks": 432,
+    "controversy_ratio": 0.046,
+    "retention_density": "442,577表示に対する滞在エンゲージメント",
+    "utility_aspiration_score": 0.127,
+    "text_length": 0
+  },
+  "content_analysis": {
+    "content_type": "長文テキスト（投資哲学考察）",
+    "text_content": "エヌビディアの株価上昇と投資手法の比較考察",
+    "media": "なし",
+    "author_attributes": {
+      "name": "テスタ",
+      "verification": "認証済みアカウント",
+      "followers": 1115000,
+      "profile": "20年連続プラスのコツコツ型投資家、2024年2月総利益100億達成、専業投資家の中で最多フォロワー",
+      "account_type": "不明"
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "AIへの質問と回答提示（エヌビディア500倍）",
+      "development": "投資哲学の対比構造（5倍×4回 vs 500倍）",
+      "conclusion": "本質的価値観の表明（見栄 vs 実際の利益）"
+    },
+    "intended_behavior": {
+      "replies": "投資手法への意見交換、賛否議論の誘導",
+      "reposts": "投資哲学の共有、フォロワー教育目的",
+      "bookmarks": "投資ノートとしての保存価値提示",
+      "clicks": "特定導線なし、純粋な思想表明"
+    }
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {},
+    "retention_density": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "text_length": "長文テキストによる読了時間の確保",
+      "visual_structure": "段落構成による視認性の向上",
+      "content_specialty": "投資哲学という専門性の高い内容"
+    },
+    "interaction_induction": {
+      "contrast_structure": "凄そうに見えるのと実際にお金が増えるのという対比構造",
+      "authority_utilization": "投資家としての権威性を活用した議論誘発",
+      "reaction_points": "具体的数値比較によるツッコミどころの提供"
+    },
+    "celebrity_factor": {}
+  },
+  "author_analysis": {
+    "name": "テスタ",
+    "handle": "tesuta001",
+    "followers": 0,
+    "verified": false,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "structural_judgment": {
+    "score": 35,
+    "reasoning": [
+      "投資家としての権威性を自然に提示（数値的具体性）",
+      "フォロワー教育という名目での信頼構築",
+      "議論誘発によるエンゲージメント最適化",
+      "純粋な思想表明としての側面も強く、過度な自己宣伝色は薄い"
+    ]
+  },
+  "promotion_score": 0,
+  "self_promotion_analysis": {
+    "promotion_score": 35,
+    "reasoning": [
+      "投資家としての権威性を自然に提示（数値的具体性）",
+      "フォロワー教育という名目での信頼構築",
+      "議論誘発によるエンゲージメント最適化",
+      "純粋な思想表明としての側面も強く、過度な自己宣伝色は薄い"
+    ]
+  },
+  "metadata": {
+    "case_title": "tesuta001 投資哲学ポスト分析",
+    "analysis_completion_date": "2026-05-10",
+    "analysis_method": "X-Event-Analyzer v2.0",
+    "content_facts": ""
+  }
+}

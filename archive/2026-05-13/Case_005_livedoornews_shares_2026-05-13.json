@@ -1,0 +1,129 @@
+{
+  "case_id": "Case_005",
+  "target": {
+    "url": "https://x.com/livedoornews/status/2054044392772772160",
+    "author": "ライブドアニュース",
+    "username": "@livedoornews",
+    "post_date": "2026-05-12T00:42:00",
+    "category": "シェアの多い順",
+    "rank": 1
+  },
+  "author_profile": {
+    "name": "ライブドアニュース",
+    "username": "@livedoornews",
+    "verified": true,
+    "description": "国内・海外のニュースや芸能情報、ネットで話題の小ネタまで、幅広いジャンルのニュースをいち早くお伝えします。また、Amazonや楽天などのおトクなお買い物情報も発信中です。"
+  },
+  "metrics": {
+    "views": 4743372,
+    "likes": 43312,
+    "reposts": 13014,
+    "replies": 468,
+    "bookmarks": 5712,
+    "timestamp": "2026-05-12T00:42:00"
+  },
+  "content": {
+    "type": "news_with_image",
+    "text": "【うまそ】はなまるうどん、総重量約1キロ「爆坦々」あす13日より発売\n\n「冷やし担々」をベースに開発された一杯。総重量約1キロ・肉総重量約340グラムという圧倒的なボリュームで仕上げ、本格的な担々麺の奥行きある味わいをはなまる流に表現している。期間限定で販売。",
+    "has_media": true,
+    "media_type": "image",
+    "image": {
+      "url": "https://pbs.twimg.com/media/HIFtuaobgAA1COE?format=jpg&name=small",
+      "dimensions": {
+        "width": 640,
+        "height": 503,
+        "aspect_ratio": "1.27"
+      },
+      "analysis": {
+        "ocr": {
+          "has_text": true,
+          "text_length": 123,
+          "confidence": 37
+        },
+        "vision": {
+          "top_object": "plate",
+          "confidence": 0.308
+        },
+        "pixel": {
+          "brightness": "普通",
+          "contrast": "高コントラスト",
+          "dominant_colors": 5
+        }
+      }
+    },
+    "external_links": [
+      "https://news.livedoor.com/article/detail"
+    ],
+    "hashtags": []
+  },
+  "analysis": {
+    "logical_structure": {
+      "introduction": "グルメ情報を示すタグ付け",
+      "core_information": "商品名と特徴を簡潔に提示",
+      "detailed_explanation": "商品の詳細な説明と特徴",
+      "visual_supplement": "食べ物の画像による食欲喚起",
+      "intended_actions": ["情報収集", "共有", "訪問", "議論"],
+      "structural_features": "ニュース記事形式による「情報提供」構造"
+    },
+    "engagement_analysis": {
+      "controversy_ratio": 0.0108,
+      "controversy_ratio_percent": "1.08%",
+      "retention_density": 0.00913,
+      "retention_density_percent": "0.913%",
+      "utility_aspiration_score": 0.0012,
+      "utility_aspiration_score_percent": "0.120%",
+      "repost_like_ratio": 0.300,
+      "repost_like_ratio_percent": "30.0%",
+      "characteristics": [
+        "低いControversy Ratioによる受容されやすい内容",
+        "低いRetention Densityによる短時間での理解",
+        "低いUtility Scoreによる保存価値の低さ",
+        "高いRepost/Like Ratioによる共有意欲の高さ"
+      ]
+    },
+    "algorithm_strategy": {
+      "dwell_time_factors": [
+        "話題性による期間限定商品のニュース価値",
+        "視覚的魅力による食べ物画像の食欲喚起",
+        "情報価値による新商品情報の速報性"
+      ],
+      "interaction_inducement": [
+        "共有行動の促進による話題性の高いグルメ情報",
+        "拡散意欲による「これはすごい」と思わせるボリューム表示",
+        "実践意欲による実際に試してみたいという気持ち"
+      ],
+      "adaptation_strategies": [
+        "高共有価値によるRepost/Like Ratioの高さ",
+        "低Controversyによる幅広い層への受容性",
+        "話題性による期間限定・ボリュームという拡散しやすい要素",
+        "視覚的要素による食べ物画像のクリック誘導"
+      ]
+    }
+  },
+  "promotion_score": 15,
+  "judgment_basis": {
+    "positive_elements": {
+      "percentage": 85,
+      "factors": [
+        "客観的なニュース情報の提供",
+        "ユーザーへの有益なグルメ情報",
+        "話題性の高い商品情報の伝達",
+        "幅広い層に受容される普遍的な内容"
+      ]
+    },
+    "promotion_elements": {
+      "percentage": 15,
+      "factors": [
+        "ライブドアニュースブランドの認知度向上",
+        "メディアとしての情報発信能力のアピール",
+        "トラフィック誘致による収益化"
+      ]
+    }
+  },
+  "conclusion": "本ポストはニュース情報提供が主目的であり、プロモーション要素は副次的。ユーザーへの価値提供を重視した構造が支配的で、商業的プロモーション意図は低い。",
+  "analysis_metadata": {
+    "completed_at": "2026-05-13T01:10:00",
+    "method": "X-Event-Analyzer v2.0（汎用型）",
+    "analyst": "Cascade AI"
+  }
+}

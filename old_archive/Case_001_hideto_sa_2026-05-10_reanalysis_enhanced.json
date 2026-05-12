@@ -1,0 +1,130 @@
+{
+  "case_id": "001",
+  "case_type": "standard",
+  "filename": "Case_001_hideto_sa_2026-05-10_reanalysis",
+  "analysis_date": "sa_2026-05-10_reanalysis",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/hideto_sa/status/2052970571236037050",
+    "author": "坂井秀人",
+    "author_handle": "hideto",
+    "post_date": "2026-05-09T13:35:00",
+    "verified": true,
+    "background_context": "複合的背景要因（推定）",
+    "category": "",
+    "content_type": "",
+    "external_links": [],
+    "analysis_timestamp": ""
+  },
+  "metrics": {
+    "views": 2362734,
+    "replies": 2404,
+    "reposts": 1067,
+    "likes": 2193,
+    "bookmarks": 659,
+    "controversy_ratio": 0,
+    "retention_density": 0,
+    "utility_aspiration_score": 0,
+    "text_length": 486
+  },
+  "content_analysis": {
+    "content_type": "不明",
+    "text_content": "過去の幸福喪失、現状の鬱状態、反省表明、リプライ要求",
+    "media": "なし",
+    "author_attributes": {
+      "name": "坂井秀人",
+      "verification": "未認証",
+      "followers": 0,
+      "profile": "",
+      "account_type": "不明",
+      "title": "",
+      "account_created": ""
+    },
+    "media_analysis": {}
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {},
+    "intended_behavior": {},
+    "structural_features": ""
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": 0,
+      "retention_density": 0,
+      "utility_aspiration_score": 0
+    },
+    "characteristics": {
+      "type": "議論活性化型",
+      "description": "Controversy Ratio 110%は通常バズ（0.2-0.5%）より大幅に高い水準",
+      "engagement_depth": "深い滞在：長文による読了時間延長がアルゴリズム評価に貢献",
+      "save_intent": "低保存意欲：ブックマーク率0.03%は一時的共感の特性を反映"
+    },
+    "anomaly_analysis": {
+      "controversy_ratio_meaning": "Controversy Ratio 110%は「議論・対話型」エンゲージメントの典型。複合的背景要因（映像流出・金銭的損失）と感情的決意の組み合わせが反論・共感の双方を誘発していると推定される。"
+    }
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "dwell_time_generators": []
+    },
+    "interaction_induction": {
+      "interaction_inducement": []
+    },
+    "adaptation_strategy": {
+      "dwell_time": "長文読解によるページ滞在延長",
+      "discussion_activation": "高Controversy Ratioによるアルゴリズム評価向上",
+      "emotional_resonance": "複合的損失体験による共感ネットワークの形成"
+    }
+  },
+  "author_analysis": {
+    "name": "坂井秀人",
+    "handle": "hideto",
+    "followers": 0,
+    "verified": true,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 0,
+  "promotion_analysis": "",
+  "structural_judgment": {
+    "promotion_score": 75,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 25,
+        "factors": [
+          "実際の損失体験に基づく反省表明",
+          "具体的な自己批判の展開",
+          "段階的構成による論理的一貫性"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 75,
+        "factors": [
+          "認証済みアカウントによる信頼性の活用",
+          "議論誘発によるエンゲージメント最大化戦略",
+          "過去の成功体験（車、時計、ブランド品等）の具体的列挙",
+          "長文構成による滞在時間延長の意図的設計",
+          "リプライ要求による直接的注目集め",
+          "複合的背景要因を利用した話題性の創出"
+        ]
+      }
+    },
+    "conclusion": "個人的な損失体験を共有しつつ、議論活性化と深い共感を通じてインフルエンサーとしての影響力を維持・回復する戦略的コミュニケーション。複合的背景要因を活用した共感マーケティングとして機能している可能性が高い。"
+  },
+  "metadata": {
+    "case_title": "Case #001",
+    "analysis_completion_date": "sa_2026-05-10_reanalysis",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": ""
+  }
+}

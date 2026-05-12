@@ -1,0 +1,122 @@
+{
+  "case_id": "001",
+  "case_type": "standard",
+  "filename": "Case_001_hideto_sa",
+  "analysis_date": "sa",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/hideto_sa/status/2052970571236037050",
+    "author": "坂井秀人",
+    "author_handle": "hideto",
+    "post_date": "2026-05-09T13:35:00",
+    "verified": true,
+    "background_context": "複合的背景要因（推定）"
+  },
+  "metrics": {
+    "views": 2362734,
+    "replies": 2404,
+    "reposts": 1067,
+    "likes": 2193,
+    "bookmarks": 659,
+    "controversy_ratio": 1.1,
+    "retention_density": 0,
+    "utility_aspiration_score": 0,
+    "text_length": 486
+  },
+  "content_analysis": {
+    "content_type": "長文テキスト投稿",
+    "text_content": "過去の幸福喪失、現状の鬱状態、反省表明、リプライ要求",
+    "media": "なし",
+    "author_attributes": {
+      "name": "坂井秀人",
+      "verification": "認証済みアカウント",
+      "followers": 0,
+      "profile": "会社複数オーナー、馬主、ヘリR44、フェラーリ488spider→ウルティメ ロードスター、AMEXセンチュリオン保有",
+      "account_type": "不明"
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "土曜日の子供たちとの日常風景（具体的・感情的）",
+      "turning_point": "「…鬱」による感情状態表明",
+      "assumption": "「あの時、誰かが止めてくれたら…」3つの条件文",
+      "fact_confirmation": "「家族もお金もなくなって」「今の自分には何もない」",
+      "explanation": "成功体験とSNS投稿の満足感",
+      "recognition_shift": "「友人だと思ってた誰からも連絡は無い」",
+      "past_comparison": "6万の家賃滞納、妻との約束",
+      "self_analysis": "「お金に取り憑かれてた」「僕が間違ってた…認めるから」",
+      "conclusion": "「いまこの時だけでも優しいリプもらえませんか？いまとても弱ってます…」"
+    },
+    "intended_behavior": {
+      "physical_request": "共感・励ましを促す「返信」機能",
+      "psychological_request": "反省表明に対する「いいね」による支持表明",
+      "amplification": "類似経験者による「リポスト」による共感ネットワーク形成"
+    }
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {},
+    "retention_density": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "text_volume": "486文字（通常投稿の3-4倍の読了時間）",
+      "media_composition": "テキストのみ（高速ロード・深い読解）",
+      "thread": "なし（単発完結型）"
+    },
+    "interaction_induction": {
+      "reply_induction": "「優しいリプもらえませんか？」「いまとても弱ってます…」による直接的呼びかけ",
+      "quote_rt_trigger": "自己批判内容による異論・反論の余地提供",
+      "reaction_points": "過去の成功体験列挙による価値観の対比"
+    },
+    "celebrity_factor": {}
+  },
+  "author_analysis": {
+    "name": "坂井秀人",
+    "handle": "hideto",
+    "followers": 0,
+    "verified": false,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "structural_judgment": {
+    "score": 0,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 25,
+        "factors": [
+          "実際の損失体験に基づく反省表明",
+          "具体的な自己批判の展開",
+          "段階的構成による論理的一貫性"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 75,
+        "factors": [
+          "認証済みアカウントによる信頼性の活用",
+          "議論誘発によるエンゲージメント最大化戦略",
+          "過去の成功体験（車、時計、ブランド品等）の具体的列挙",
+          "長文構成による滞在時間延長の意図的設計",
+          "リプライ要求による直接的注目集め",
+          "複合的背景要因を利用した話題性の創出"
+        ]
+      }
+    }
+  },
+  "promotion_score": 0,
+  "metadata": {
+    "case_title": "Case #001",
+    "analysis_completion_date": "2026-05-10",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": ""
+  }
+}

@@ -9,20 +9,11 @@ async function init() {
     <p class="subtitle">${CONFIG.ui.subtitle}</p>
   `;
 
-  // ソートオプションを設定（エンゲージメント拡張）
+  // ソートオプションを設定
   const sortSelect = document.getElementById("sortSelect");
   CONFIG.sortOptions.forEach((option) => {
     sortSelect.innerHTML += `<option value="${option.value}">${option.label}</option>`;
   });
-  
-  // 拡張ソートオプションを追加
-  sortSelect.innerHTML += `
-    <option value="engagement-desc">エンゲージメント数（降順）</option>
-    <option value="engagement-asc">エンゲージメント数（昇順）</option>
-    <option value="promotion-desc">プロモーション度（降順）</option>
-    <option value="promotion-asc">プロモーション度（昇順）</option>
-  `;
-  
   // デフォルトで最新順を選択
   sortSelect.value = "date-desc";
 
@@ -85,11 +76,8 @@ async function loadArchiveData() {
         // 日付部分を抽出（YYYY-MM-DD形式）
         const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
 
-        // JSONファイルから分析時間とエンゲージメントデータを取得
+        // JSONファイルから分析時間を取得（ローカル環境とGitHub Pages両対応）
         let analysisTime = "";
-        let engagementData = null;
-        let promotionScore = 0;
-        
         try {
           // まずローカルパスを試す
           let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
@@ -108,18 +96,10 @@ async function loadArchiveData() {
               const analysisDate = new Date(jsonData.analysis_timestamp);
               analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
             }
-            
-            // エンゲージメントデータを取得
-            engagementData = getEngagementMetrics(jsonData);
-            
-            // プロモーションスコアを取得
-            promotionScore = getPromotionScore(jsonData);
           }
         } catch (error) {
-          // JSONが存在しない場合はデフォルト値を使用
+          // JSONが存在しない場合はデフォルト時間を使用
           analysisTime = " 12:00";
-          engagementData = { views: 0, likes: 0, reposts: 0, replies: 0, bookmarks: 0 };
-          promotionScore = 0;
         }
 
         archiveData.push({
@@ -134,8 +114,6 @@ async function loadArchiveData() {
           name: name,
           caseDate: caseDate,
           analysisTime: analysisTime,
-          engagement: engagementData,
-          promotionScore: promotionScore,
         });
       }
     }
@@ -165,9 +143,6 @@ async function loadArchiveDataFromConfig() {
       const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
 
       let analysisTime = "";
-      let engagementData = null;
-      let promotionScore = 0;
-      
       try {
         // まずローカルパスを試す
         let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
@@ -185,14 +160,9 @@ async function loadArchiveDataFromConfig() {
             const analysisDate = new Date(jsonData.analysis_timestamp);
             analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
           }
-          
-          engagementData = getEngagementMetrics(jsonData);
-          promotionScore = getPromotionScore(jsonData);
         }
       } catch (error) {
         analysisTime = " 12:00";
-        engagementData = { views: 0, likes: 0, reposts: 0, replies: 0, bookmarks: 0 };
-        promotionScore = 0;
       }
 
       archiveData.push({
@@ -207,8 +177,6 @@ async function loadArchiveDataFromConfig() {
         name: name,
         caseDate: caseDate,
         analysisTime: analysisTime,
-        engagement: engagementData,
-        promotionScore: promotionScore,
       });
     }
   }
@@ -280,11 +248,6 @@ function displayArchive() {
               <div class="case-preview">
                   ケース ID: ${item.caseId} | 投稿者: ${item.name} | 投稿日: ${item.caseDate}
               </div>
-              ${item.engagement ? `
-                  <div class="engagement-preview">
-                      👁 ${formatNumber(item.engagement.views || 0)} | ❤️ ${formatNumber(item.engagement.likes || 0)} | 🔄 ${formatNumber(item.engagement.reposts || 0)}
-                  </div>
-              ` : ""}
           </div>
       `,
     )
@@ -355,7 +318,7 @@ function filterArchive() {
   sortArchive();
 }
 
-// ソート（拡張機能対応）
+// ソート
 function sortArchive() {
   const sortValue = document.getElementById("sortSelect").value;
 
@@ -380,48 +343,9 @@ function sortArchive() {
     case "name-desc":
       filteredData.sort((a, b) => b.name.localeCompare(a.name));
       break;
-    case "engagement-desc":
-      // エンゲージメント数の合計で降順ソート
-      filteredData.sort((a, b) => {
-        const engagementA = calculateTotalEngagement(a.engagement);
-        const engagementB = calculateTotalEngagement(b.engagement);
-        return engagementB - engagementA;
-      });
-      break;
-    case "engagement-asc":
-      // エンゲージメント数の合計で昇順ソート
-      filteredData.sort((a, b) => {
-        const engagementA = calculateTotalEngagement(a.engagement);
-        const engagementB = calculateTotalEngagement(b.engagement);
-        return engagementA - engagementB;
-      });
-      break;
-    case "promotion-desc":
-      // プロモーション度で降順ソート
-      filteredData.sort((a, b) => b.promotionScore - a.promotionScore);
-      break;
-    case "promotion-asc":
-      // プロモーション度で昇順ソート
-      filteredData.sort((a, b) => a.promotionScore - b.promotionScore);
-      break;
   }
 
   displayArchive();
-}
-
-// エンゲージメント数の合計を計算
-function calculateTotalEngagement(engagement) {
-  if (!engagement) return 0;
-  return (engagement.views || 0) + 
-         (engagement.likes || 0) + 
-         (engagement.reposts || 0) + 
-         (engagement.replies || 0) + 
-         (engagement.bookmarks || 0);
-}
-
-// 数字をフォーマット
-function formatNumber(num) {
-  return num ? num.toLocaleString("ja-JP") : "0";
 }
 
 // ケースを表示

@@ -1,0 +1,129 @@
+{
+  "case_id": "003",
+  "case_type": "standard",
+  "filename": "Case_003_gihuboy_2026-05-10",
+  "analysis_date": "2026-05-10",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/gihuboy/status/2053116451977138343",
+    "author": "岐阜暴威",
+    "author_handle": "gihuboy",
+    "post_date": "2026-05-09T23:14:00",
+    "verified": true,
+    "background_context": "任天堂株保有による含み損、およそ400万程度が起因",
+    "category": "",
+    "content_type": "",
+    "external_links": [],
+    "analysis_timestamp": ""
+  },
+  "metrics": {
+    "views": 337038,
+    "replies": 179,
+    "reposts": 172,
+    "likes": 1411,
+    "bookmarks": 51,
+    "controversy_ratio": 0,
+    "retention_density": 0,
+    "utility_aspiration_score": 0,
+    "text_length": 27
+  },
+  "content_analysis": {
+    "content_type": "不明",
+    "text_content": "俺はもう一生マリオをやらない テーマパークも近寄らない 絶対かかわらない",
+    "media": "なし",
+    "author_attributes": {
+      "name": "岐阜暴威",
+      "verification": "未認証",
+      "followers": 0,
+      "profile": "",
+      "account_type": "不明",
+      "title": "",
+      "account_created": ""
+    },
+    "media_analysis": {}
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {},
+    "intended_behavior": {},
+    "structural_features": ""
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": 0,
+      "retention_density": 0,
+      "utility_aspiration_score": 0
+    },
+    "characteristics": {
+      "type": "議論活性化型",
+      "controversy_analysis": "Controversy Ratio 12.7%は通常バズ（0.2-0.5%）より大幅に高い水準",
+      "save_intent": "低保存意欲：ブックマーク率0.02%は感情的発言の一時性を反映",
+      "spread_suppression": "拡散抑制：リポスト数172はいいね数の12.2%（通常は20-30%）"
+    },
+    "anomaly_analysis": {
+      "controversy_meaning": "Controversy Ratio 12.7%は「論争・議論型」エンゲージメントの典型。金銭的損失と感情的決意の組み合わせが反論・共感の双方を誘発。"
+    }
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "dwell_time_generators": []
+    },
+    "interaction_induction": {
+      "interaction_inducement": []
+    },
+    "adaptation_strategy": {
+      "discussion_activation": "高Controversy Ratioによるアルゴリズム評価向上",
+      "emotional_resonance": "損失経験による共感ネットワークの形成",
+      "timeliness": "任天堂株価変動との関連性による話題性の維持"
+    }
+  },
+  "author_analysis": {
+    "name": "岐阜暴威",
+    "handle": "gihuboy",
+    "followers": 0,
+    "verified": true,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 0,
+  "promotion_analysis": "",
+  "structural_judgment": {
+    "promotion_score": 60,
+    "reasoning": {
+      "positive_elements": {
+        "percentage": 40,
+        "factors": [
+          "実際の金銭的損失に基づく感情的表明",
+          "具体的な行動制約の宣言",
+          "断定的表現による自己決意の明確化"
+        ]
+      },
+      "promotion_elements": {
+        "percentage": 60,
+        "factors": [
+          "認証済みアカウントによる信頼性の活用",
+          "議論誘発によるエンゲージメント最大化戦略",
+          "時事性（任天堂株価）を利用した話題性の創出",
+          "複数の商業リンク（HP、ストア、Amazon）への潜在誘導",
+          "フォロワー増加を目的とした感情的コンテンツの最適化"
+        ]
+      }
+    },
+    "conclusion": "個人的な損失体験を共有しつつ、議論活性化と話題性創出を通じてインフルエンサーとしての影響力を維持・拡大する戦略的コミュニケーション。感情的共感を商業的影響力に変換するプロモーションとして機能。"
+  },
+  "metadata": {
+    "case_title": "Case #003",
+    "analysis_completion_date": "2026-05-10",
+    "analysis_method": "X-Event-Analyzer v2.0（汎用型）",
+    "content_facts": ""
+  }
+}

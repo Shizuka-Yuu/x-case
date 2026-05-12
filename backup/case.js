@@ -62,13 +62,6 @@ function updatePageInfo(casePath, caseId, jsonData) {
 
   // 概要セクションを更新
   if (jsonData) {
-    // caseOverviewを表示
-    const caseOverview = document.getElementById("caseOverview");
-    if (caseOverview) {
-      caseOverview.style.display = "block";
-      console.log("caseOverviewを表示");
-    }
-
     updateThumbnailData(jsonData, title);
 
     // 確実にDOM更新を実行
@@ -102,9 +95,6 @@ function updatePageInfo(casePath, caseId, jsonData) {
       barElement.style.width = promotionScore + "%";
       console.log("確実更新: バー幅を更新:", promotionScore + "%");
     }
-
-    // 拡張機能：チャートセクションを表示
-    displayChartsSection(jsonData);
   }
 
   // ページタイトルを更新
@@ -448,40 +438,5 @@ function saveThumbnail() {
   }
 }
 
-// チャートセクションを表示
-function displayChartsSection(jsonData) {
-  const chartsSection = document.getElementById("chartsSection");
-  if (!chartsSection) return;
-
-  // チャートセクションを表示
-  chartsSection.style.display = "block";
-
-  // Chart.jsが利用可能か確認
-  if (typeof Chart !== "undefined" && window.chartUtils) {
-    // 少し遅延してチャートを描画（DOMが確実に更新されるのを待つ）
-    setTimeout(() => {
-      try {
-        // レーダーチャートを作成
-        window.chartUtils.createRadarChart("radarChart", jsonData);
-
-        // マトリクスチャートを作成
-        window.chartUtils.createMatrixChart("matrixChart", jsonData);
-
-        console.log("チャートの描画が完了しました");
-      } catch (error) {
-        console.error("チャート描画エラー:", error);
-      }
-    }, 500);
-  } else {
-    console.warn("Chart.jsまたはchartUtilsが利用できません");
-  }
-}
-
 // ページ読み込み時に初期化
-document.addEventListener("DOMContentLoaded", function () {
-  // chart-utils.jsを先に読み込む
-  const script = document.createElement("script");
-  script.src = "js/chart-utils.js";
-  script.onload = getCaseFromURL;
-  document.head.appendChild(script);
-});
+document.addEventListener("DOMContentLoaded", getCaseFromURL);

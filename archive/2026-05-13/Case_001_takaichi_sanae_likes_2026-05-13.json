@@ -1,0 +1,111 @@
+{
+  "case_id": "Case_001",
+  "target": {
+    "url": "https://x.com/takaichi_sanae/status/2054031300580004120",
+    "author": "高市早苗",
+    "username": "@takaichi_sanae",
+    "post_date": "2026-05-12T11:49:00",
+    "category": "いいねの多い順",
+    "rank": 1
+  },
+  "author_profile": {
+    "name": "高市早苗",
+    "username": "@takaichi_sanae",
+    "followers": 2878000,
+    "following": 0,
+    "posts_count": 1488,
+    "joined_date": "2010-11",
+    "verified": true,
+    "description": "衆議院議員 自由民主党奈良県第2選挙区支部長 ※総理在任中の投稿は、一部広報スタッフによるものを含みます。",
+    "website": "sanae.gr.jp"
+  },
+  "metrics": {
+    "views": 8255802,
+    "likes": 243839,
+    "reposts": 17338,
+    "replies": 3833,
+    "bookmarks": 3591,
+    "timestamp": "2026-05-12T11:49:00"
+  },
+  "content": {
+    "type": "text_with_image",
+    "text": "月曜日に、なぜか鈴木農林水産大臣からきれいなお花をいただきました。「母の日？」と思いよく見ると、『お母さんありがとう』の上にシールが貼ってあり『お姉さんありがとう』。実際、親子ほど年の差はありますが、鈴木大臣の気遣いが面白くて、喜んで飾っています。",
+    "has_media": true,
+    "media_urls": ["https://pbs.twimg.com/media/HIFa1kAagAAXaw_?format=jpg&name=large"],
+    "media_analysis": {
+      "image_size": "1587x1416",
+      "aspect_ratio": "1.12",
+      "brightness": "normal",
+      "contrast": "high",
+      "ocr_confidence": 46,
+      "vision_confidence": 0.171,
+      "top_object": "tray"
+    }
+  },
+  "analysis": {
+    "logical_structure": {
+      "introduction": "政治家間の個人的な交流の提示",
+      "development": "ユーモラスな気遣いの描写",
+      "conclusion": "感謝と人間味の表現",
+      "intended_actions": ["共感・共鳴", "拡散", "ポジティブな感情", "政治的関心"],
+      "structural_features": "政治家の公的な立場と個人的な人間味の対比を巧みに構成"
+    },
+    "engagement_analysis": {
+      "controversy_ratio": 0.0157,
+      "controversy_ratio_percent": "1.57%",
+      "retention_density": 0.0295,
+      "retention_density_percent": "2.95%",
+      "utility_aspiration_score": 0.00043,
+      "utility_aspiration_score_percent": "0.043%",
+      "characteristics": [
+        "低Controversy Ratioによる対立回避",
+        "高Retention Densityによる滞在時間確保",
+        "低ブックマーク率による一時的共感"
+      ]
+    },
+    "algorithm_strategy": {
+      "dwell_time_factors": [
+        "適度なテキスト量による読了時間確保",
+        "花束の視覚的要素による滞在促進",
+        "感情要素による感情的滞在生成"
+      ],
+      "interaction_inducement": [
+        "政治家の人間的な側面による共感誘発",
+        "ユーモラスな要素による引用RT誘発",
+        "政権内人間関係に関する肯定的コメント誘導"
+      ],
+      "adaptation_strategies": [
+        "感情優先による共感最大化",
+        "母の日という季節的要素の活用",
+        "政治的立場を超えた普遍的人間味の提示"
+      ]
+    }
+  },
+  "promotion_score": 35,
+  "judgment_basis": {
+    "positive_elements": {
+      "percentage": 65,
+      "factors": [
+        "実際に発生した個人的なエピソードに基づく",
+        "政治家の人間的な側面を自然に表現",
+        "過度な演出や見せかけが見られない",
+        "共感を基調とした自然な反応を促す"
+      ]
+    },
+    "promotion_elements": {
+      "percentage": 35,
+      "factors": [
+        "政権内の和やかさを印象付ける政治的効果",
+        "投稿者の親しみやすいイメージの構築",
+        "母の日という時期を意識したタイミング",
+        "フォロワー287.8万人という影響力を活用"
+      ]
+    }
+  },
+  "conclusion": "本ポストは自然な個人的エピソード共有が主目的であり、副次的に政治的イメージ向上効果を持つ構造になっている。意図的なプロモーションよりも、実際の出来事を共有する自然な投稿形態が特徴的。",
+  "analysis_metadata": {
+    "completed_at": "2026-05-13T00:53:00",
+    "method": "X-Event-Analyzer v2.0（汎用型）",
+    "analyst": "Cascade AI"
+  }
+}

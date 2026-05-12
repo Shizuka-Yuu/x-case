@@ -1,0 +1,133 @@
+{
+  "case_id": "Case_004",
+  "target": {
+    "url": "https://x.com/neco_momochan/status/2053865878593417605",
+    "author": "hani",
+    "username": "@neco_momochan",
+    "post_date": "2026-05-12T00:00:00",
+    "category": "ブックマークの多い順",
+    "rank": 1
+  },
+  "author_profile": {
+    "name": "hani",
+    "username": "@neco_momochan",
+    "followers": 101000,
+    "following": 103,
+    "posts_count": 14000,
+    "joined_date": "2018-09",
+    "verified": true,
+    "description": "医療従事者。ダイエット・美容・整形・お洋服など...色々な情報を呟きます。173cm/min48kg⇒63kg→55kg ダイエット中！※PR案件はDMに",
+    "website": "instagram.com/neco_hani"
+  },
+  "metrics": {
+    "views": 6363800,
+    "likes": 67574,
+    "reposts": 5078,
+    "replies": 472,
+    "bookmarks": 72597,
+    "timestamp": "2026-05-12T00:00:00"
+  },
+  "content": {
+    "type": "text_with_video",
+    "text": "とりあえず、こうやって巻いておけば全身UNIQLOでも上品になると学んでからスカーフ乱用してる。",
+    "has_media": true,
+    "media_type": "embedded_video",
+    "video_thumbnail": {
+      "url": "https://pbs.twimg.com/amplify_video_thumb/2053865752143466496/img/9KbpZfFo83btY2cD.jpg",
+      "dimensions": {
+        "width": 770,
+        "height": 1199,
+        "aspect_ratio": "0.64"
+      },
+      "analysis": {
+        "ocr": {
+          "has_text": true,
+          "text_length": 160,
+          "confidence": 54
+        },
+        "vision": {
+          "top_object": "knot",
+          "confidence": 0.313
+        },
+        "pixel": {
+          "brightness": "普通",
+          "contrast": "高コントラスト",
+          "dominant_colors": 5
+        }
+      }
+    },
+    "external_links": [],
+    "hashtags": []
+  },
+  "analysis": {
+    "logical_structure": {
+      "introduction": "カジュアルな口調で親近感を演出",
+      "core_technique": "具体的な問題解決策の提示",
+      "practice_declaration": "ユーモアを交えた実践証明",
+      "visual_supplement": "埋め込み動画による実演デモンストレーション",
+      "intended_actions": ["模倣", "保存", "共有", "購入"],
+      "structural_features": "短いテキストと実演動画の組み合わせによる「見せる・教える」構造"
+    },
+    "engagement_analysis": {
+      "controversy_ratio": 0.00698,
+      "controversy_ratio_percent": "0.698%",
+      "retention_density": 0.01062,
+      "retention_density_percent": "1.062%",
+      "utility_aspiration_score": 0.01141,
+      "utility_aspiration_score_percent": "1.141%",
+      "bookmark_like_ratio": 1.074,
+      "bookmark_like_ratio_percent": "107.4%",
+      "characteristics": [
+        "極めて低いControversy Ratioによる受容されやすい内容",
+        "中程度のRetention Densityによる適度な滞在時間",
+        "極めて高いUtility Scoreによる実用的価値",
+        "ブックマーク超過による保存重視の行動パターン"
+      ]
+    },
+    "algorithm_strategy": {
+      "dwell_time_factors": [
+        "実用性による日常生活での役立ち",
+        "視覚的学習による分かりやすいデモンストレーション",
+        "共感性による身近なブランドへの言及"
+      ],
+      "interaction_inducement": [
+        "保存行動の促進による「後で試したい」という心理",
+        "拡散意欲による役立つ情報の共有欲求",
+        "模倣行動による簡単に真似できるテクニックへの関心"
+      ],
+      "adaptation_strategies": [
+        "高保存価値によるブックマーク率の高さ",
+        "低Controversyによる幅広い層への受容性",
+        "実用的価値によるユーザーの生活への貢献",
+        "視覚的要素による滞在時間の確保"
+      ]
+    }
+  },
+  "promotion_score": 25,
+  "judgment_basis": {
+    "positive_elements": {
+      "percentage": 75,
+      "factors": [
+        "実用的なファッションテクニックの提供",
+        "ユーザーの問題解決への貢献",
+        "分かりやすい視覚的デモンストレーション",
+        "幅広い層に受容される普遍的な内容"
+      ]
+    },
+    "promotion_elements": {
+      "percentage": 25,
+      "factors": [
+        "インフルエンサーとしての専門性のアピール",
+        "フォロワー増加を目指す実用コンテンツ戦略",
+        "PR案件受注への基盤構築",
+        "ブランド価値の向上"
+      ]
+    }
+  },
+  "conclusion": "本ポストは実用的な情報提供が主目的であり、プロモーション要素は副次的。ユーザーへの価値提供を重視した構造が支配的で、商業的プロモーション意図は低い。",
+  "analysis_metadata": {
+    "completed_at": "2026-05-13T01:20:00",
+    "method": "X-Event-Analyzer v2.0（汎用型）",
+    "analyst": "Cascade AI"
+  }
+}

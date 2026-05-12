@@ -1,0 +1,70 @@
+{
+  "case_id": "007",
+  "case_type": "standard",
+  "filename": "Case_007_komeo1144_2026-05-12",
+  "analysis_date": "2026-05-12",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "https://x.com/komeo1144/status/2053784577173574078",
+    "author": "こめお / 世界で闘う料理人。",
+    "author_handle": "komeo1144",
+    "post_date": "",
+    "verified": false,
+    "background_context": ""
+  },
+  "metrics": {
+    "views": 10855711,
+    "replies": 3812,
+    "reposts": 1778,
+    "likes": 7645,
+    "bookmarks": 1049,
+    "controversy_ratio": 0,
+    "retention_density": 0,
+    "utility_aspiration_score": 0,
+    "text_length": 0
+  },
+  "content_analysis": {
+    "content_type": "不明",
+    "text_content": "",
+    "media": "不明",
+    "author_attributes": {
+      "name": "こめお / 世界で闘う料理人。",
+      "verification": "未認証",
+      "followers": 0,
+      "profile": "",
+      "account_type": "不明"
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {},
+    "intended_behavior": {}
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {},
+    "retention_density": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {},
+    "interaction_induction": {},
+    "celebrity_factor": {}
+  },
+  "author_analysis": {
+    "name": "こめお / 世界で闘う料理人。",
+    "handle": "komeo1144",
+    "followers": 0,
+    "verified": false,
+    "profile": "",
+    "account_reliability": ""
+  },
+  "timeline_background": {
+    "post_datetime": "",
+    "mutual_interaction": "",
+    "event_rarity": ""
+  },
+  "promotion_score": 25
+}

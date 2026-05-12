@@ -1,0 +1,132 @@
+{
+  "case_id": "005",
+  "case_type": "standard",
+  "filename": "Case_005_okada_junichi",
+  "analysis_date": "junichi",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "target": {
+    "url": "",
+    "author": "岡田准一",
+    "author_handle": "okada",
+    "post_date": "2026-05-10T13:04:00",
+    "verified": true,
+    "background_context": "インスピレーション: エンゲージメント順によるトップ投稿（いいねの多い順、過去24時間）"
+  },
+  "metrics": {
+    "views": 11040114,
+    "replies": 2001,
+    "reposts": 21804,
+    "likes": 245891,
+    "bookmarks": 5191,
+    "controversy_ratio": 0.0081,
+    "retention_density": 2.23,
+    "utility_aspiration_score": 0.047,
+    "text_length": 85
+  },
+  "content_analysis": {
+    "content_type": "短文テキスト投稿",
+    "text_content": "偶然コンビニから出てくる、とんでもなく二宮和也くんまんまの人と会いました。テレビでみるまんまでした、疑いようかありません。ナチュラルの極みでした また会ったら捕獲して報告します。",
+    "media": "なし",
+    "author_attributes": {
+      "name": "岡田准一",
+      "verification": "認証済みアカウント",
+      "followers": 358000,
+      "profile": "岡田准一/ JUNICHI OKADA/ AISTONの公式Xです。日本人の身体の使い方とかも研究してます",
+      "account_type": "公式アカウント"
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "",
+    "mutual_posting": "",
+    "event_type": ""
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "introduction": "「偶然コンビニから出てくる」という日常的な状況設定",
+      "core": "「とんでもなく二宮和也くんまんまの人」という驚きの表現",
+      "reinforcement": "「テレビでみるまんまでした、疑いようかありません」という強調",
+      "conclusion": "「ナチュラルの極みでした」という感想と「また会ったら捕獲して報告します」という未来への期待"
+    },
+    "intended_behavior": {
+      "replies": "偶然の遭遇への驚きや共感、二宮和也さんへの思い出話等",
+      "reposts": "有名人同士の偶然の遭遇というニュース的価値の拡散",
+      "likes": "面白いエピソードへの共感と支持",
+      "bookmarks": "有名芸能人同士の交流という記録的価値の保存"
+    }
+  },
+  "engagement_analysis": {
+    "ratio_analysis": {
+      "controversy_ratio": {
+        "value": 0.0081,
+        "percentage": "0.81%",
+        "interpretation": "通常のバズ投稿と比較して非常に低い値、議論や対話よりも共感や拡散が中心であることを示唆"
+      },
+      "retention_density": {
+        "value": 2.23,
+        "interpretation": "短文ながら内容の面白さから比較的高い滞在率、有名人同士の偶然の遭遇という希少性が関心を引いた"
+      },
+      "utility_aspiration_score": {
+        "value": 0.047,
+        "percentage": "0.047%",
+        "interpretation": "情報的価値よりもエンターテイメント価値が中心、後続参照の必要性は低いが記録的価値は一定程度存在"
+      }
+    },
+    "retention_density": {}
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "text_volume": "短文ながらインパクトのある表現",
+      "media_composition": "テキストのみ（画像・動画なし）",
+      "thread": "単一投稿"
+    },
+    "interaction_induction": {
+      "quote_function": "二宮和也さんの投稿を引用することで、双方向の交流を可視化",
+      "reaction_points": "「捕獲して報告します」というユーモラスな表現が反応を誘発",
+      "celebrity_factor": "岡田准一さんと二宮和也さんという国民的アイドル同士の偶然の遭遇"
+    },
+    "celebrity_factor": {}
+  },
+  "author_analysis": {
+    "name": "岡田准一",
+    "handle": "okada",
+    "followers": 358000,
+    "verified": true,
+    "profile": "岡田准一/ JUNICHI OKADA/ AISTONの公式Xです。日本人の身体の使い方とかも研究してます",
+    "account_reliability": "公式アカウントであり、個人的な投稿としての信頼性が高い"
+  },
+  "timeline_background": {
+    "post_datetime": "2026年5月10日 午後1:04",
+    "mutual_interaction": "二宮和也さんも同日に岡田准一さんとの遭遇を投稿（相互のやり取り）",
+    "event_rarity": "偶然の街での芸能人同士の遭遇という希少な出来事"
+  },
+  "structural_judgment": {
+    "score": 15,
+    "reasoning": [
+      "商業的意図は見られず、純粋な個人的な体験の共有",
+      "岡田准一さんと二宮和也さんという国民的アイドルの知名度が拡散に大きく貢献",
+      "AISTONという新しい活動名の認知度向上に間接的に寄与している可能性",
+      "人間的な側面を見せることで、イメージ向上に貢献していると推定される"
+    ]
+  },
+  "promotion_score": 0,
+  "self_promotion_analysis": {
+    "promotion_score": 15,
+    "reasoning": [
+      "商業的意図は見られず、純粋な個人的な体験の共有",
+      "岡田准一さんと二宮和也さんという国民的アイドルの知名度が拡散に大きく貢献",
+      "AISTONという新しい活動名の認知度向上に間接的に寄与している可能性",
+      "人間的な側面を見せることで、イメージ向上に貢献していると推定される"
+    ]
+  },
+  "summary": {
+    "post_characterization": "偶然の出来事をユーモラスに表現することで、多くの共感と拡散を獲得した典型的な「有名人の日常エピソード」",
+    "key_characteristics": "議論を呼ぶような内容ではなく、純粋な驚きと面白さが中心であるため、Controversy Ratioが極めて低い特徴がある",
+    "algorithm_assessment": "アルゴリズム的には、有名性と偶然性という二つの強力な要素が組み合わさり、高エンゲージメントを維持したと推定される"
+  },
+  "metadata": {
+    "case_title": "岡田准一さんの二宮和也さんとの遭遇ポスト分析",
+    "analysis_completion_date": "2026-05-11",
+    "analysis_method": "X-Event-Analyzer v2.0",
+    "content_facts": "時系列事実（最重要：断定厳禁）"
+  }
+}
