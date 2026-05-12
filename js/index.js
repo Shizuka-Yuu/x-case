@@ -14,7 +14,7 @@ async function init() {
   CONFIG.sortOptions.forEach((option) => {
     sortSelect.innerHTML += `<option value="${option.value}">${option.label}</option>`;
   });
-  
+
   // 拡張ソートオプションを追加
   sortSelect.innerHTML += `
     <option value="engagement-desc">エンゲージメント数（降順）</option>
@@ -22,7 +22,7 @@ async function init() {
     <option value="promotion-desc">プロモーション度（降順）</option>
     <option value="promotion-asc">プロモーション度（昇順）</option>
   `;
-  
+
   // デフォルトで最新順を選択
   sortSelect.value = "date-desc";
 
@@ -89,7 +89,7 @@ async function loadArchiveData() {
         let analysisTime = "";
         let engagementData = null;
         let promotionScore = 0;
-        
+
         try {
           // まずローカルパスを試す
           let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
@@ -103,22 +103,33 @@ async function loadArchiveData() {
 
           if (jsonResponse.ok) {
             const jsonData = await jsonResponse.json();
-            // analysis_timestampから分析時間を生成
-            if (jsonData.analysis_timestamp) {
+            // analysis_metadata.completed_atから分析時間を生成
+            if (jsonData.analysis_metadata?.completed_at) {
+              const analysisDate = new Date(
+                jsonData.analysis_metadata.completed_at,
+              );
+              analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+            } else if (jsonData.analysis_timestamp) {
               const analysisDate = new Date(jsonData.analysis_timestamp);
               analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
             }
-            
+
             // エンゲージメントデータを取得
             engagementData = getEngagementMetrics(jsonData);
-            
+
             // プロモーションスコアを取得
             promotionScore = getPromotionScore(jsonData);
           }
         } catch (error) {
           // JSONが存在しない場合はデフォルト値を使用
           analysisTime = " 12:00";
-          engagementData = { views: 0, likes: 0, reposts: 0, replies: 0, bookmarks: 0 };
+          engagementData = {
+            views: 0,
+            likes: 0,
+            reposts: 0,
+            replies: 0,
+            bookmarks: 0,
+          };
           promotionScore = 0;
         }
 
@@ -167,7 +178,7 @@ async function loadArchiveDataFromConfig() {
       let analysisTime = "";
       let engagementData = null;
       let promotionScore = 0;
-      
+
       try {
         // まずローカルパスを試す
         let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
@@ -181,17 +192,28 @@ async function loadArchiveDataFromConfig() {
 
         if (response.ok) {
           const jsonData = await response.json();
-          if (jsonData.analysis_timestamp) {
+          if (jsonData.analysis_metadata?.completed_at) {
+            const analysisDate = new Date(
+              jsonData.analysis_metadata.completed_at,
+            );
+            analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+          } else if (jsonData.analysis_timestamp) {
             const analysisDate = new Date(jsonData.analysis_timestamp);
             analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
           }
-          
+
           engagementData = getEngagementMetrics(jsonData);
           promotionScore = getPromotionScore(jsonData);
         }
       } catch (error) {
         analysisTime = " 12:00";
-        engagementData = { views: 0, likes: 0, reposts: 0, replies: 0, bookmarks: 0 };
+        engagementData = {
+          views: 0,
+          likes: 0,
+          reposts: 0,
+          replies: 0,
+          bookmarks: 0,
+        };
         promotionScore = 0;
       }
 
@@ -280,11 +302,15 @@ function displayArchive() {
               <div class="case-preview">
                   ケース ID: ${item.caseId} | 投稿者: ${item.name} | 投稿日: ${item.caseDate}
               </div>
-              ${item.engagement ? `
+              ${
+                item.engagement
+                  ? `
                   <div class="engagement-preview">
                       👁 ${formatNumber(item.engagement.views || 0)} | ❤️ ${formatNumber(item.engagement.likes || 0)} | 🔄 ${formatNumber(item.engagement.reposts || 0)}
                   </div>
-              ` : ""}
+              `
+                  : ""
+              }
           </div>
       `,
     )
@@ -412,11 +438,13 @@ function sortArchive() {
 // エンゲージメント数の合計を計算
 function calculateTotalEngagement(engagement) {
   if (!engagement) return 0;
-  return (engagement.views || 0) + 
-         (engagement.likes || 0) + 
-         (engagement.reposts || 0) + 
-         (engagement.replies || 0) + 
-         (engagement.bookmarks || 0);
+  return (
+    (engagement.views || 0) +
+    (engagement.likes || 0) +
+    (engagement.reposts || 0) +
+    (engagement.replies || 0) +
+    (engagement.bookmarks || 0)
+  );
 }
 
 // 数字をフォーマット
@@ -461,10 +489,20 @@ async function viewCase(path, filename) {
 function displayJsonData(data, filename, originalPath) {
   const modalBody = document.getElementById("modalBody");
 
-  // 分析時間を取得（analysis_dateと現在時刻から生成）
-  const analysisDateTime = data.analysis_date
-    ? `${data.analysis_date} ${new Date().toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })}`
-    : "N/A";
+  // 分析時間を取得（analysis_metadata.completed_atから生成）
+  let analysisDateTime = "N/A";
+  if (data.analysis_metadata?.completed_at) {
+    const analysisDate = new Date(data.analysis_metadata.completed_at);
+    analysisDateTime = analysisDate.toLocaleString("ja-JP", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } else if (data.analysis_date) {
+    analysisDateTime = data.analysis_date;
+  }
 
   // 数値のフォントサイズを判定する関数
   function getMetricFontSize(value) {

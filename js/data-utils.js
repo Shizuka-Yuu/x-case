@@ -11,17 +11,25 @@ function getControversyRatio(data) {
   if (data.ratios?.controversy_ratio !== undefined) {
     return data.ratios.controversy_ratio;
   }
-  
+
   // 旧形式 (005まで)
   if (data.metrics?.controversy_ratio !== undefined) {
     return data.metrics.controversy_ratio;
   }
-  
+
   // engagement_analysis形式
-  if (data.engagement_analysis?.ratio_analysis?.controversy_ratio?.value !== undefined) {
+  if (
+    data.engagement_analysis?.ratio_analysis?.controversy_ratio?.value !==
+    undefined
+  ) {
     return data.engagement_analysis.ratio_analysis.controversy_ratio.value;
   }
-  
+
+  // Case_006以降の新しい構造
+  if (data.analysis?.engagement_analysis?.controversy_ratio !== undefined) {
+    return data.analysis.engagement_analysis.controversy_ratio;
+  }
+
   return 0;
 }
 
@@ -35,21 +43,21 @@ function getPromotionScore(data) {
   if (data.promotion_score !== undefined) {
     return data.promotion_score;
   }
-  
+
   // structural_judgment形式
   if (data.structural_judgment?.promotion_score !== undefined) {
     return data.structural_judgment.promotion_score;
   }
-  
+
   if (data.structural_judgment?.score !== undefined) {
     return data.structural_judgment.score;
   }
-  
+
   // self_promotion_analysis形式
   if (data.self_promotion_analysis?.promotion_score !== undefined) {
     return data.self_promotion_analysis.promotion_score;
   }
-  
+
   return 0;
 }
 
@@ -63,19 +71,19 @@ function getEngagementMetrics(data) {
   if (data.metrics) {
     return data.metrics;
   }
-  
+
   // engagement形式（006以降）
   if (data.engagement) {
     return data.engagement;
   }
-  
+
   // デフォルト値
   return {
     views: 0,
     replies: 0,
     reposts: 0,
     likes: 0,
-    bookmarks: 0
+    bookmarks: 0,
   };
 }
 
@@ -89,31 +97,40 @@ function getAuthorInfo(data) {
   if (data.content_analysis?.author_attributes) {
     return data.content_analysis.author_attributes;
   }
-  
+
   // target.author_attributes形式
   if (data.target?.author_attributes) {
     return data.target.author_attributes;
   }
-  
-  // target形式
+
+  // target形式（006以降の新構造）
   if (data.target) {
     return {
-      name: data.target.author,
-      handle: data.target.author_handle,
+      name: data.target.author || data.target.name || "N/A",
+      handle: data.target.username || data.target.author_handle || "N/A",
       verification: data.target.verified ? "認証済みアカウント" : "未認証",
-      followers: data.target.author_attributes?.followers || 0,
-      profile: data.target.author_attributes?.profile || "",
-      account_type: data.target.author_attributes?.account_type || "不明"
+      followers:
+        data.target.author_profile?.followers ||
+        data.target.author_attributes?.followers ||
+        0,
+      profile:
+        data.target.author_profile?.description ||
+        data.target.author_attributes?.profile ||
+        "",
+      account_type:
+        data.target.author_profile?.account_type ||
+        data.target.author_attributes?.account_type ||
+        "不明",
     };
   }
-  
+
   return {
     name: "N/A",
     handle: "N/A",
     verification: "不明",
     followers: 0,
     profile: "",
-    account_type: "不明"
+    account_type: "不明",
   };
 }
 
@@ -123,10 +140,12 @@ function getAuthorInfo(data) {
  * @returns {string} 結論テキスト
  */
 function getJudgmentConclusion(data) {
-  return data.structural_judgment?.conclusion ||
-         data.summary?.post_characterization ||
-         data.analysis?.post_characterization ||
-         "";
+  return (
+    data.structural_judgment?.conclusion ||
+    data.summary?.post_characterization ||
+    data.analysis?.post_characterization ||
+    ""
+  );
 }
 
 // グローバル関数としてエクスポート
