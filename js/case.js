@@ -282,23 +282,15 @@ function updateStructuralJudgmentScore(judgment) {
       // スコアに応じて色を設定（新しい仕様：0~20緑、20~40黄、40~60橙、60~100赤）
       if (structuralScore <= 20) {
         // 0~20：緑系
-        structuralBar.style.background =
-          "linear-gradient(to left, #28a745, #34ce57)";
         structuralBar.style.backgroundColor = "#28a745";
       } else if (structuralScore <= 40) {
         // 20~40：黄色系
-        structuralBar.style.background =
-          "linear-gradient(to left, #ffc107, #ffdb4d)";
         structuralBar.style.backgroundColor = "#ffc107";
       } else if (structuralScore <= 60) {
         // 40~60：オレンジ系
-        structuralBar.style.background =
-          "linear-gradient(to left, #fd7e14, #ff922b)";
         structuralBar.style.backgroundColor = "#fd7e14";
       } else {
         // 60~100：赤系
-        structuralBar.style.background =
-          "linear-gradient(to left, #dc3545, #e4606d)";
         structuralBar.style.backgroundColor = "#dc3545";
       }
 
