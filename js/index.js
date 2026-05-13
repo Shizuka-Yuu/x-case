@@ -627,28 +627,13 @@ function displayJsonData(data, filename, originalPath) {
     // プロモーションスコアに応じたカラー設定
     let barColor = "";
     if (promotionScore <= 20) {
-      barColor = "linear-gradient(90deg, #28a745, #34ce57)";
+      barColor = "#28a745";
     } else if (promotionScore <= 40) {
-      const greenIntensity = 1 - (promotionScore - 20) / 20;
-      const yellowIntensity = (promotionScore - 20) / 20;
-      barColor = `linear-gradient(90deg, 
-        rgb(${40 + yellowIntensity * 215}, ${167 + yellowIntensity * 28}, 69), 
-        rgb(${52 + yellowIntensity * 173}, ${206 + yellowIntensity * 19}, 87))`;
+      barColor = "#ffc107";
     } else if (promotionScore <= 60) {
-      const yellowIntensity = (promotionScore - 40) / 20;
-      barColor = `linear-gradient(90deg, 
-        rgb(${255}, ${195 + yellowIntensity * 12}, ${69 + yellowIntensity * 38}), 
-        rgb(${255}, ${205 + yellowIntensity * 20}, ${87 + yellowIntensity * 12}))`;
-    } else if (promotionScore <= 80) {
-      const orangeIntensity = (promotionScore - 60) / 20;
-      barColor = `linear-gradient(90deg, 
-        rgb(${255}, ${207 - orangeIntensity * 12}, ${107 - orangeIntensity * 42}), 
-        rgb(${255}, ${225 - orangeIntensity * 25}, ${99 - orangeIntensity * 34}))`;
+      barColor = "#fd7e14";
     } else {
-      const redIntensity = (promotionScore - 80) / 20;
-      barColor = `linear-gradient(90deg, 
-        rgb(${255}, ${195 - redIntensity * 195}, ${65 - redIntensity * 20}), 
-        rgb(${255}, ${200 - redIntensity * 200}, ${65 - redIntensity * 20}))`;
+      barColor = "#dc3545";
     }
 
     html += `
