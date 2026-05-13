@@ -27,8 +27,10 @@
     "likes": 4154,
     "bookmarks": 1294,
     "engagement_rate": 0.00065,
+    "controversy_ratio": 0.509,
+    "retention_density": 0.00032,
+    "utility_score": 0.000098,
     "ratios": {
-      "controversy_ratio": 0.509,
       "bookmark_rate": 0.000098,
       "repost_to_like_ratio": 0.511
     }
