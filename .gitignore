@@ -1,5 +1,9 @@
 
 Private/
+backup/
+old_archive/
+
+
 image-analyzer/README.md
 
 procedure.md

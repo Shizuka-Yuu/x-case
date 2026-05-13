@@ -44,111 +44,119 @@ async function loadArchiveData() {
   archiveData = [];
 
   try {
-    // archiveディレクトリの構造を取得
-    const archiveResponse = await fetch(
-      "https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive",
-    );
-    if (!archiveResponse.ok) {
-      console.error("Archive directory fetch failed");
-      return;
-    }
-
-    const archiveContents = await archiveResponse.json();
-
-    // ディレクトリごとに処理
-    for (const dir of archiveContents) {
-      if (dir.type !== "dir") continue;
-
-      const dateDir = dir.name;
-      const [year, month, day] = dateDir.split("-");
-
-      // 各日付ディレクトリ内のファイルを取得
-      const filesResponse = await fetch(
-        `https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive/${dateDir}`,
+    // 設定に基づいてデータ取得モードを選択
+    if (CONFIG.dataLoading.useDynamicLoading) {
+      console.log("Using dynamic GitHub API loading");
+      // archiveディレクトリの構造を取得
+      const archiveResponse = await fetch(
+        "https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive",
       );
-      if (!filesResponse.ok) continue;
+      if (!archiveResponse.ok) {
+        console.error("Archive directory fetch failed");
+        return;
+      }
 
-      const files = await filesResponse.json();
+      const archiveContents = await archiveResponse.json();
 
-      // .mdファイルのみを処理
-      for (const file of files) {
-        if (!file.name.endsWith(".md")) continue;
+      // ディレクトリごとに処理
+      for (const dir of archiveContents) {
+        if (dir.type !== "dir") continue;
 
-        const filename = file.name;
-        // ファイル名から情報を抽出
-        const parts = filename.replace(".md", "").split("_");
-        const caseId = parts[1];
-        // ユーザー名を複数部分から正しく抽出
-        const nameParts = parts.slice(2, -1); // 最後の日付部分を除く
-        const name = nameParts.join("_");
+        const dateDir = dir.name;
+        const [year, month, day] = dateDir.split("-");
 
-        // 日付部分を抽出（YYYY-MM-DD形式）
-        const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
+        // 各日付ディレクトリ内のファイルを取得
+        const filesResponse = await fetch(
+          `https://api.github.com/repos/Shizuka-Yuu/x-case/contents/archive/${dateDir}`,
+        );
+        if (!filesResponse.ok) continue;
 
-        // JSONファイルから分析時間とエンゲージメントデータを取得
-        let analysisTime = "";
-        let engagementData = null;
-        let promotionScore = 0;
+        const files = await filesResponse.json();
 
-        try {
-          // まずローカルパスを試す
-          let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
-          let jsonResponse = await fetch(jsonPath);
+        // .mdファイルのみを処理
+        for (const file of files) {
+          if (!file.name.endsWith(".md")) continue;
 
-          if (!jsonResponse.ok) {
-            // ローカルでなければGitHub Raw URLを試す
-            jsonPath = `https://raw.githubusercontent.com/Shizuka-Yuu/x-case/master/archive/${dateDir}/${filename.replace(".md", ".json")}`;
-            jsonResponse = await fetch(jsonPath);
-          }
+          const filename = file.name;
+          // ファイル名から情報を抽出
+          const parts = filename.replace(".md", "").split("_");
+          const caseId = parts[1];
+          // ユーザー名を複数部分から正しく抽出
+          const nameParts = parts.slice(2, -1); // 最後の日付部分を除く
+          const name = nameParts.join("_");
 
-          if (jsonResponse.ok) {
-            const jsonData = await jsonResponse.json();
-            // analysis_metadata.completed_atから分析時間を生成
-            if (jsonData.analysis_metadata?.completed_at) {
-              const analysisDate = new Date(
-                jsonData.analysis_metadata.completed_at,
-              );
-              analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
-            } else if (jsonData.analysis_timestamp) {
-              const analysisDate = new Date(jsonData.analysis_timestamp);
-              analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+          // 日付部分を抽出（YYYY-MM-DD形式）
+          const caseDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
+
+          // JSONファイルから分析時間とエンゲージメントデータを取得
+          let analysisTime = "";
+          let engagementData = null;
+          let promotionScore = 0;
+
+          try {
+            // まずローカルパスを試す
+            let jsonPath = `archive/${dateDir}/${filename.replace(".md", ".json")}`;
+            let jsonResponse = await fetch(jsonPath);
+
+            if (!jsonResponse.ok) {
+              // ローカルでなければGitHub Raw URLを試す
+              jsonPath = `https://raw.githubusercontent.com/Shizuka-Yuu/x-case/master/archive/${dateDir}/${filename.replace(".md", ".json")}`;
+              jsonResponse = await fetch(jsonPath);
             }
 
-            // エンゲージメントデータを取得
-            engagementData = getEngagementMetrics(jsonData);
+            if (jsonResponse.ok) {
+              const jsonData = await jsonResponse.json();
+              // analysis_metadata.completed_atから分析時間を生成
+              if (jsonData.analysis_metadata?.completed_at) {
+                const analysisDate = new Date(
+                  jsonData.analysis_metadata.completed_at,
+                );
+                analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+              } else if (jsonData.analysis_timestamp) {
+                const analysisDate = new Date(jsonData.analysis_timestamp);
+                analysisTime = ` ${analysisDate.getHours().toString().padStart(2, "0")}:${analysisDate.getMinutes().toString().padStart(2, "0")}`;
+              }
 
-            // プロモーションスコアを取得
-            promotionScore = getPromotionScore(jsonData);
+              // エンゲージメントデータを取得
+              engagementData = getEngagementMetrics(jsonData);
+
+              // プロモーションスコアを取得
+              promotionScore = getPromotionScore(jsonData);
+            }
+          } catch (error) {
+            // JSONが存在しない場合はデフォルト値を使用
+            analysisTime = " 12:00";
+            engagementData = {
+              views: 0,
+              likes: 0,
+              reposts: 0,
+              replies: 0,
+              bookmarks: 0,
+            };
+            promotionScore = 0;
           }
-        } catch (error) {
-          // JSONが存在しない場合はデフォルト値を使用
-          analysisTime = " 12:00";
-          engagementData = {
-            views: 0,
-            likes: 0,
-            reposts: 0,
-            replies: 0,
-            bookmarks: 0,
-          };
-          promotionScore = 0;
-        }
 
-        archiveData.push({
-          filename: filename,
-          year: year,
-          month: month,
-          day: day,
-          dateDir: dateDir,
-          path: `archive/${dateDir}/${filename}`,
-          date: new Date(`${year}-${month}-${day}T12:00:00`),
-          caseId: caseId,
-          name: name,
-          caseDate: caseDate,
-          analysisTime: analysisTime,
-          engagement: engagementData,
-          promotionScore: promotionScore,
-        });
+          archiveData.push({
+            filename: filename,
+            year: year,
+            month: month,
+            day: day,
+            dateDir: dateDir,
+            path: `archive/${dateDir}/${filename}`,
+            date: new Date(`${year}-${month}-${day}T12:00:00`),
+            caseId: caseId,
+            name: name,
+            caseDate: caseDate,
+            analysisTime: analysisTime,
+            engagement: engagementData,
+            promotionScore: promotionScore,
+          });
+        }
       }
+    } else {
+      // CONFIGベースのローディングを使用
+      console.log("Using CONFIG-based loading");
+      await loadArchiveDataFromConfig();
     }
   } catch (error) {
     console.error(
@@ -463,6 +471,15 @@ async function viewCase(path, filename) {
   modalBody.innerHTML = `<div class="loading">${CONFIG.modal.loadingMessage}</div>`;
   modal.style.display = "block";
 
+  // モーダル表示後にアニメーションを開始
+  setTimeout(() => {
+    const scoreFill = modalBody.querySelector(".score-fill");
+    if (scoreFill) {
+      const targetWidth = scoreFill.getAttribute("data-target-width");
+      scoreFill.style.width = targetWidth;
+    }
+  }, 100);
+
   try {
     // JSONデータを取得
     const response = await fetch(jsonPath);
@@ -607,12 +624,39 @@ function displayJsonData(data, filename, originalPath) {
     data.self_promotion_analysis ||
     data.analysis
   ) {
+    // プロモーションスコアに応じたカラー設定
+    let barColor = "";
+    if (promotionScore <= 20) {
+      barColor = "linear-gradient(90deg, #28a745, #34ce57)";
+    } else if (promotionScore <= 40) {
+      const greenIntensity = 1 - (promotionScore - 20) / 20;
+      const yellowIntensity = (promotionScore - 20) / 20;
+      barColor = `linear-gradient(90deg, 
+        rgb(${40 + yellowIntensity * 215}, ${167 + yellowIntensity * 28}, 69), 
+        rgb(${52 + yellowIntensity * 173}, ${206 + yellowIntensity * 19}, 87))`;
+    } else if (promotionScore <= 60) {
+      const yellowIntensity = (promotionScore - 40) / 20;
+      barColor = `linear-gradient(90deg, 
+        rgb(${255}, ${195 + yellowIntensity * 12}, ${69 + yellowIntensity * 38}), 
+        rgb(${255}, ${205 + yellowIntensity * 20}, ${87 + yellowIntensity * 12}))`;
+    } else if (promotionScore <= 80) {
+      const orangeIntensity = (promotionScore - 60) / 20;
+      barColor = `linear-gradient(90deg, 
+        rgb(${255}, ${207 - orangeIntensity * 12}, ${107 - orangeIntensity * 42}), 
+        rgb(${255}, ${225 - orangeIntensity * 25}, ${99 - orangeIntensity * 34}))`;
+    } else {
+      const redIntensity = (promotionScore - 80) / 20;
+      barColor = `linear-gradient(90deg, 
+        rgb(${255}, ${195 - redIntensity * 195}, ${65 - redIntensity * 20}), 
+        rgb(${255}, ${200 - redIntensity * 200}, ${65 - redIntensity * 20}))`;
+    }
+
     html += `
         <div class="judgment-section">
             <h3>構造的判定</h3>
             <div class="judgment-score">
                 <div class="score-bar">
-                    <div class="score-fill" style="width: ${promotionScore}%"></div>
+                    <div class="score-fill" style="width: 0%; background: ${barColor}; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);" data-target-width="${promotionScore}%"></div>
                 </div>
                 <span class="score-text">プロモーション度: ${promotionScore}%</span>
             </div>

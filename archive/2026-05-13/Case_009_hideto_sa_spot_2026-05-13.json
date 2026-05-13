@@ -1,0 +1,107 @@
+{
+  "case_id": "Case_009_hideto_sa_spot_2026-05-13",
+  "target": {
+    "author": {
+      "name": "坂井秀人",
+      "handle": "@hideto_sa",
+      "verified": true,
+      "followers": 102000,
+      "following": 161,
+      "bio": "会社複数オーナー、馬主、ヘリR44、フェラーリ488spider→ウルティメ ロードスター、AMEXセンチュリオン保有",
+      "location": "東京",
+      "joined": "2015年1月"
+    },
+    "post": {
+      "url": "https://x.com/hideto_sa/status/2053105032636330325",
+      "timestamp": "2026-05-09T13:29:19.000Z",
+      "analysis_date": "2026-05-13",
+      "content": "ふざけんなよ\nヤフーニュースもとりあげて\n1人で被ろうとしたけどバカらしくなったわ\n港区いない人は分からないだけで、港区の夜はあれが普通だから\nおまえらこんな時だけドン引きとか言って逃げるなよ\n\n女の子が自分売って得た金で豊胸して顔バキバキいじってキャバ行ってスポンサー見つけてあがるまでがテンプレート\n接待で仕上がった女の子をあてがっていい思いしてもらってアフターのサパーで無茶できる女の子（男も）が体張る\nこれ港区の日常\n僕の体験とかじゃなく港区の一般論\n良い悪いじゃなくて現実\n\n六本木、西麻布ね\nなにが西麻布だ？六本木と変わらんよ格好つけるな\n\n地元の田舎に向かって良いように見せるなよ\nあのビルの何階と何階は！誰と誰は！\nキンキンに冷えた1800のチェイサーにシャンパン飲まなきゃやってられないんだよ\nシラフじゃいられないだけなんだよ\nもう頭痛い、。、",
+      "type": "text",
+      "word_count": 398
+    }
+  },
+  "metrics": {
+    "views": 13157869,
+    "replies": 2115,
+    "reposts": 2121,
+    "likes": 4154,
+    "bookmarks": 1294,
+    "engagement_rate": 0.00065,
+    "ratios": {
+      "controversy_ratio": 0.509,
+      "bookmark_rate": 0.000098,
+      "repost_to_like_ratio": 0.511
+    }
+  },
+  "analysis": {
+    "logical_structure": {
+      "challenge": "「ふざけんなよ」という攻撃的な導入",
+      "justification": "ヤフーニュース掲載による外部からの注目の言及",
+      "minato_defense": "「港区の夜はあれが普通だから」という価値観の提示",
+      "criticism": "「おまえらこんな時だけドン引きとか言って逃げるなよ」という一般ユーザーへの非難",
+      "specific_examples": "港区の夜の具体的な描写（接待、キャバクラ、高級飲食）",
+      "geographical_authority": "六本木と西麻布の違いを語ることで地域知識の権威性を主張",
+      "rural_criticism": "「地元の田舎に向かって良いように見せるなよ」という階級的優位性の提示",
+      "detailed_description": "高級飲食の詳細（1800のチェイサー、シャンパン）",
+      "conclusion": "「シラフじゃいられないだけなんだよ」「もう頭痛い」という感情的な締めくくり"
+    },
+    "intended_behavior": {
+      "reply_function": "挑戦的な口調と批判により、議論や反論を誘発",
+      "spread_function": "物議を醸す内容により、拡散と議論の呼びかけ",
+      "like_function": "同意派からの支持表明を期待"
+    },
+    "engagement_characteristics": {
+      "controversy_ratio": 0.509,
+      "controversy_description": "通常のバズ（0.2-0.5）と比較してやや高めの議論密度",
+      "retention_density": "中程度の長文（約400字）による適度な滞在時間",
+      "utility_score": 0.000098,
+      "utility_description": "表示数に対して比較的低い保存率",
+      "viral_growth": "表示数が先の投稿の約5倍：話題性の爆発的増加"
+    },
+    "algorithm_strategy": {
+      "retention_factors": {
+        "challenging_intro": "「ふざけんなよ」による即座の関心引寄せ",
+        "specific_description": "港区の夜の詳細な情景描写",
+        "class_conflict": "港区住民vs田舎者という構図の構築",
+        "geographical_authority": "六本木と西麻布の違いを語る専門性の演出"
+      },
+      "interaction_inducement": {
+        "challenging_language": "攻撃的な表現による反論の誘発",
+        "value_presentation": "「港区の一般論」という権威的な語り口",
+        "specificity": "1800のチェイサーなど具体的な数値による信憑性",
+        "emotional_closing": "「もう頭痛い」という人間的な弱みの提示"
+      }
+    }
+  },
+  "promotion_score": 75,
+  "promotion_analysis": {
+    "self_display_aspect": "港区の権威者としての地位の強調",
+    "controversy_generation": "意図的に論争を呼ぶ内容での注目度確保",
+    "class_superiority": "港区住民としての特権的な立場の演出",
+    "continuity": "先の没落narrativeからの転換、権威回復の試み",
+    "discrepancy": {
+      "authority_claim": "港区の「一般論」としての権威性の主張",
+      "specific_details": "具体的な金額や場所の詳細における演出効果",
+      "external_attention": "ヤフーニュース掲載による外部からの注目の利用"
+    }
+  },
+  "consistency_analysis": {
+    "case_008_comparison": {
+      "character_change": "Case_008の絶望的な自己から、Case_009の権威的な態度へ",
+      "narrative_transition": "没落物語から港区の権威者としての地位回復へ",
+      "strategic_change": "共感誘導から議論誘発への手法転換"
+    },
+    "consistent_elements": {
+      "self_promotion": "両投稿ともに自己の地位や経験を強調",
+      "calculated_structure": "感情操作や議論誘発の戦略的要素",
+      "specific_numbers": "6万の家賃、1800のチェイサーなど具体的な数値の使用"
+    }
+  },
+  "conclusion": "本投稿は、先の絶望的な自己告白から一転して、港区の権威者としての地位を確立しようとする試みと推測される。挑戦的な口調と具体的な描写により、意図的に議論を呼び起こし注目度を維持する戦略が見られる。表示数の爆発的増加は、物議を醸す内容のアルゴリズムへの影響を示唆している。",
+  "quote_summary": {
+    "title": "【Case #009 構造分析】",
+    "overview": "港区の権威者としての地位を確立するため、挑戦的な口調と具体的描写で意図的に議論を呼び起こす投稿",
+    "dynamics": "返信/いいね比0.509の議論誘発型構造と、先の絶望narrativeからの権威回復戦略",
+    "observation": "表示数1,315万という爆発的増加と、港区の「一般論」としての権威性主張の演出効果"
+  }
+}

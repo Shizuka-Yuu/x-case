@@ -1,20 +1,23 @@
 // X-case Archive Viewer Configuration
 const CONFIG = {
+  // データ取得モード設定
+  dataLoading: {
+    mode: "dynamic", // "dynamic" または "config"
+    useDynamicLoading: true, // trueの場合はGitHub APIから動的取得
+  },
+
   // アーカイブデータ構造
   archiveStructure: {
-    "2026-05-10": [
-      "Case_001_hideto_sa_2026-05-10_reanalysis.md",
-      "Case_002_hayakore_2026-05-10.md",
-      "Case_003_gihuboy_2026-05-10.md",
-      "Case_004_tesuta001_2026-05-10.md",
-    ],
-    "2026-05-11": ["Case_005_okada_junichi_2026-05-11.md"],
-    "2026-05-12": [
-      "Case_006_takaichi_sanae_2026-05-12.md",
-      "Case_007_komeo1144_2026-05-12.md",
-      "Case_008_t_asuka_2003_2026-05-12.md",
-      "Case_009_ydb_yokohama_2026-05-12.md",
-      "Case_010_shadowverse_jp_2026-05-12.md",
+    "2026-05-13": [
+      "Case_001_takaichi_sanae_likes_2026-05-13.md",
+      "Case_002_ydb_yokohama_replies_2026-05-13.md",
+      "Case_003_ydb_yokohama_quotes_2026-05-13.md",
+      "Case_004_neco_momochan_bookmarks_2026-05-13.md",
+      "Case_005_livedoornews_shares_2026-05-13.md",
+      "Case_006_pochama777_video_views_2026-05-13.md",
+      "Case_007_okada_junichi_spot_2026-05-13.md",
+      "Case_008_hideto_sa_spot_2026-05-13.md",
+      "Case_009_hideto_sa_spot_2026-05-13.md",
     ],
   },
 

@@ -1,0 +1,80 @@
+{
+  "case_id": "Case_007",
+  "target": {
+    "url": "https://x.com/J_OKADA_AISTON/status/2053325226646335540",
+    "author": "岡田准一 / JUNICHI OKADA / AISTON",
+    "username": "@J_OKADA_AISTON",
+    "timestamp": "2026-05-10T13:04:00",
+    "content_type": "引用リポスト",
+    "analysis_type": "spot"
+  },
+  "author_profile": {
+    "followers": 359000,
+    "following": 5,
+    "posts": 530,
+    "joined": "2024-02",
+    "verified": true,
+    "bio": "いろいろやってます。岡田准一/ JUNICHI OKADA/ AISTONの公式Xです。日本人の身体の使い方とかも研究してます。どこ目指してんの？は褒め言葉です。最新情報などお伝えしながら、スタッフもたまにつぶやきます。",
+    "category": "芸能人"
+  },
+  "metrics": {
+    "views": 13387793,
+    "replies": 2061,
+    "reposts": 23746,
+    "likes": 283800,
+    "bookmarks": 5936,
+    "controversy_ratio": 0.0073,
+    "retention_density": 0.0212,
+    "utility_score": 0.00044
+  },
+  "analysis": {
+    "logical_structure": {
+      "quote_retweet_format": "二宮和也氏の投稿を引用し客観性を付与",
+      "emotional_expression": "「とんでもなく」「疑いようがありません」「ナチュラルの極みでした」といった強い感情表現",
+      "future_reference": "「また会ったら捕獲して報告します」という継続性の示唆",
+      "celebrity_encounter": "岡田准一と二宮和也という国民的アイドル同士の偶然の出会い"
+    },
+    "intended_actions": {
+      "spread": "有名人同士の偶然の出会いというニュース的価値による拡散",
+      "empathy": "偶然の出会いへの感慨や懐かしさへの共感",
+      "dialogue": "「捕獲」というユーモラス表現への反応や、二人への応援メッセージ",
+      "save": "有名人のプライベートな交流という貴重な情報の保存"
+    },
+    "engagement_characteristics": {
+      "dominant_likes": "Controversy Ratioが0.73%と極めて低く、対論ではなく共感が支配的",
+      "good_engagement_rate": "表示数1338万に対し2.12%のいいね率は、偶発的なバズとして高い水準",
+      "quote_effect": "元投稿があることで、二重の視点から情報が消費される構造"
+    },
+    "algorithm_strategy": {
+      "multiple_fan_bases": "岡田ファンと二宮ファン、両方のエンゲージメントを獲得",
+      "timeliness_universality": "特定の日付の出来事でありながら、有名人の交流という普遍的なテーマ",
+      "low_controversy": "争议を避ける内容により、幅広い層からの共感を獲得しやすい構造"
+    }
+  },
+  "promotion_score": 15,
+  "promotion_analysis": {
+    "positive_elements": {
+      "percentage": 85,
+      "factors": [
+        "偶然の出来事に対する自然な反応",
+        "引用リポストによる客観性の担保",
+        "特定の商業的意図の見当たらない純粋な感情表現",
+        "二人の過去の関係性から見て自然な交流"
+      ]
+    },
+    "promotion_elements": {
+      "percentage": 15,
+      "factors": [
+        "SNSでの存在感維持という間接的なプロモーション効果",
+        "「自然体」というイメージの強化",
+        "ファンとの親近感を醸成する効果"
+      ]
+    }
+  },
+  "conclusion": "本ポストは基本的に自然な感情表現と見られ、意図的なプロモーションとしての機能は低いと判断される。しかし、有名人としてのSNS運用という文脈において、間接的なイメージ戦略として15%のプロモーション要素を含んでいる可能性がある。",
+  "analysis_metadata": {
+    "completed_at": "2026-05-13T03:27:00",
+    "method": "X-Event-Analyzer v2.0（汎用型）",
+    "analyst": "AI Assistant"
+  }
+}

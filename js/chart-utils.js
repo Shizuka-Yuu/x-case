@@ -22,10 +22,19 @@ class ChartUtils {
     return (normalizedControversy + promotionScore) / 2;
   }
 
+  // プロモーションスコアのシンプルスケーリング（1/5に変換）
+  calculatePromotionPurityScaled(promotionScore) {
+    // プロモーションスコアを単純に1/5にスケーリング
+    const scaledScore = promotionScore / 5;
+
+    // 0-10の範囲に制限
+    return Math.max(0, Math.min(10, scaledScore));
+  }
+
   // 新しい6軸構成によるスコア計算
   calculateSixAxisScores(metrics, promotionScore, controversyRatio) {
-    // プロモーション純度 (promotionScore)
-    const promotionPurity = promotionScore;
+    // プロモーション純度（特殊スケーリング適用）
+    const promotionPurity = this.calculatePromotionPurityScaled(promotionScore);
 
     // 論争ポテンシャル (非線形スケーリング)
     const controversyPotential =
@@ -295,16 +304,70 @@ class ChartUtils {
               display: true,
               text: "志向性（プロモーション度）",
             },
-            min: 0,
-            max: 50, // プロモーションスコアの最大値に合わせて調整
+            min: -10,
+            max: 110, // 縦横110に統一（-10から110まで）
+            grid: {
+              display: false, // グリッドを非表示
+            },
+            border: {
+              display: false, // 枠のボーダーを非表示
+            },
+            ticks: {
+              display: false, // すべての目盛りを非表示
+            },
           },
           y: {
             title: {
               display: true,
               text: "熱量/毒性（論争ポテンシャル）",
             },
-            min: 0,
-            max: 100,
+            min: -10,
+            max: 110, // 縦横110に統一（-10から110まで）
+            grid: {
+              display: false, // グリッドを非表示
+            },
+            border: {
+              display: false, // 枠のボーダーを非表示
+            },
+            ticks: {
+              display: false, // すべての目盛りを非表示
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            position: "top",
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const point = context.raw;
+                return [
+                  context.dataset.label,
+                  "志向性: " + point.x.toFixed(1),
+                  "影響力: " + point.y.toFixed(1),
+                  "リーチ: " + Math.pow(10, point.r / 10).toFixed(0),
+                ];
+              },
+            },
+          },
+          annotation: {
+            annotations: {
+              lineX: {
+                type: "line",
+                xMin: 50,
+                xMax: 50,
+                borderColor: "rgba(0, 0, 0, 0.3)",
+                borderWidth: 1,
+              },
+              lineY: {
+                type: "line",
+                yMin: 50,
+                yMax: 50,
+                borderColor: "rgba(0, 0, 0, 0.3)",
+                borderWidth: 1,
+              },
+            },
           },
         },
       },
@@ -341,5 +404,29 @@ class ChartUtils {
   }
 }
 
+// テスト用：プロモーションスコアのスケーリング動作を確認
+function testPromotionScaling() {
+  const chartUtils = new ChartUtils();
+
+  console.log("=== 基本的なスケーリングテスト（1/5変換）===");
+  const testScores = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  testScores.forEach((score) => {
+    const scaled = chartUtils.calculatePromotionPurityScaled(score);
+    console.log(`元の値: ${score} → スケーリング後: ${scaled.toFixed(1)}`);
+  });
+
+  console.log("\n=== 実際のケースデータテスト（1/5変換）===");
+  const actualScores = [10, 15, 25, 35]; // 実際のサンプルデータ
+  actualScores.forEach((score) => {
+    const scaled = chartUtils.calculatePromotionPurityScaled(score);
+    console.log(
+      `ケースデータ: ${score} → スケーリング後: ${scaled.toFixed(1)}`,
+    );
+  });
+}
+
 // グローバルインスタンスを作成
 window.chartUtils = new ChartUtils();
+
+// テスト関数をグローバルに公開（開発時のみ使用）
+window.testPromotionScaling = testPromotionScaling;
