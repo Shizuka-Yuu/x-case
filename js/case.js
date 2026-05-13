@@ -279,41 +279,27 @@ function updateStructuralJudgmentScore(judgment) {
       structuralBar.style.transition =
         "width 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
 
-      // スコアに応じて色を設定（プロモーションスコア内で完結するグラデーション）
+      // スコアに応じて色を設定（新しい仕様：0~20緑、20~40黄、40~60橙、60~100赤）
       if (structuralScore <= 20) {
-        // 低いプロモーション度：緑のグラデーション
+        // 0~20：緑系
         structuralBar.style.background =
-          "linear-gradient(90deg, #28a745, #34ce57)";
+          "linear-gradient(to left, #28a745, #34ce57)";
         structuralBar.style.backgroundColor = "#28a745";
       } else if (structuralScore <= 40) {
-        // やや低いプロモーション度：緑から黄緑へのグラデーション
-        const greenIntensity = 1 - (structuralScore - 20) / 20; // 20-40の範囲で1から0へ
-        const yellowIntensity = (structuralScore - 20) / 20; // 20-40の範囲で0から1へ
-        structuralBar.style.background = `linear-gradient(90deg, 
-          rgb(${40 + yellowIntensity * 215}, ${167 + yellowIntensity * 28}, 69), 
-          rgb(${52 + yellowIntensity * 173}, ${206 + yellowIntensity * 19}, 87))`;
-        structuralBar.style.backgroundColor = `rgb(${40 + yellowIntensity * 215}, ${167 + yellowIntensity * 28}, 69)`;
+        // 20~40：黄色系
+        structuralBar.style.background =
+          "linear-gradient(to left, #ffc107, #ffdb4d)";
+        structuralBar.style.backgroundColor = "#ffc107";
       } else if (structuralScore <= 60) {
-        // 中程度のプロモーション度：黄緑から黄色へのグラデーション
-        const yellowIntensity = (structuralScore - 40) / 20; // 40-60の範囲で0から1へ
-        structuralBar.style.background = `linear-gradient(90deg, 
-          rgb(${255}, ${195 + yellowIntensity * 12}, ${69 + yellowIntensity * 38}), 
-          rgb(${255}, ${205 + yellowIntensity * 20}, ${87 + yellowIntensity * 12}))`;
-        structuralBar.style.backgroundColor = `rgb(${255}, ${195 + yellowIntensity * 12}, ${69 + yellowIntensity * 38})`;
-      } else if (structuralScore <= 80) {
-        // やや高いプロモーション度：黄色からオレンジへのグラデーション
-        const orangeIntensity = (structuralScore - 60) / 20; // 60-80の範囲で0から1へ
-        structuralBar.style.background = `linear-gradient(90deg, 
-          rgb(${255}, ${207 - orangeIntensity * 12}, ${107 - orangeIntensity * 42}), 
-          rgb(${255}, ${225 - orangeIntensity * 25}, ${99 - orangeIntensity * 34}))`;
-        structuralBar.style.backgroundColor = `rgb(${255}, ${207 - orangeIntensity * 12}, ${107 - orangeIntensity * 42})`;
+        // 40~60：オレンジ系
+        structuralBar.style.background =
+          "linear-gradient(to left, #fd7e14, #ff922b)";
+        structuralBar.style.backgroundColor = "#fd7e14";
       } else {
-        // 高いプロモーション度：オレンジから赤へのグラデーション
-        const redIntensity = (structuralScore - 80) / 20; // 80-100の範囲で0から1へ
-        structuralBar.style.background = `linear-gradient(90deg, 
-          rgb(${255}, ${195 - redIntensity * 195}, ${65 - redIntensity * 20}), 
-          rgb(${255}, ${200 - redIntensity * 200}, ${65 - redIntensity * 20}))`;
-        structuralBar.style.backgroundColor = `rgb(${255}, ${195 - redIntensity * 195}, ${65 - redIntensity * 20})`;
+        // 60~100：赤系
+        structuralBar.style.background =
+          "linear-gradient(to left, #dc3545, #e4606d)";
+        structuralBar.style.backgroundColor = "#dc3545";
       }
 
       // CSSアニメーションを使用
