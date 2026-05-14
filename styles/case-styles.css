@@ -16,7 +16,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f5f5f5;
   color: #333;
   line-height: 1.6;
@@ -120,7 +121,11 @@ body {
 
 .thumbnail-metric {
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.85)
+  );
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   padding: 1rem 0.6rem;
@@ -137,7 +142,11 @@ body {
 
 .thumbnail-metric:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.12),
+    rgba(118, 75, 162, 0.08)
+  );
 }
 
 .metric-value {
@@ -177,7 +186,11 @@ body {
 .judgment-section {
   width: 100%;
   padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.85));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 249, 250, 0.85)
+  );
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
@@ -208,12 +221,14 @@ body {
   border-radius: 6px;
   overflow: hidden;
   margin-bottom: 0.5rem;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .judgment-bar {
   height: 100%;
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  transition:
+    width 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
 }
@@ -234,9 +249,18 @@ body {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 900;
   padding-bottom: 0.1rem;
+  color: #667eea; /* フォールバック（画像保存時など） */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* 画像保存時：html2canvasがbackground-clipに対応していないための対策 */
+.is-capturing .promotion-text {
+  background: none !important;
+  -webkit-text-fill-color: #667eea !important;
+  color: #667eea !important;
 }
 
 .overview-content {

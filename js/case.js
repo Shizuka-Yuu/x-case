@@ -15,35 +15,33 @@ function getCaseFromURL() {
 async function loadCase(casePath, caseId) {
   try {
     console.log("ケース読み込み開始:", casePath);
-
-    // JSONデータを取得
     const jsonPath = casePath.replace(".md", ".json");
-    console.log("JSONパス:", jsonPath);
 
-    const jsonResponse = await fetch(jsonPath);
-    let jsonData = null;
+    // JSONとMarkdownのフェッチを同時に開始
+    const jsonPromise = fetch(jsonPath).then(res => res.ok ? res.json() : null);
+    const mdPromise = fetch(casePath).then(res => {
+      if (!res.ok) throw new Error("Markdownファイルが見つかりません");
+      return res.text();
+    });
 
-    if (jsonResponse.ok) {
-      jsonData = await jsonResponse.json();
-      console.log("JSONデータ読み込み成功:", jsonData);
-    } else {
-      console.warn("JSONファイルが見つかりません:", jsonPath);
-    }
+    // JSONが完了したら即座にメトリクスを表示（Markdownを待たない）
+    jsonPromise.then(jsonData => {
+      if (jsonData) {
+        updatePageInfo(casePath, caseId, jsonData);
+        console.log("メトリクスを早期表示しました");
+      }
+    });
 
-    // Markdownコンテンツを取得
-    const mdResponse = await fetch(casePath);
-    if (!mdResponse.ok) {
-      throw new Error("Markdownファイルが見つかりません");
-    }
-
-    const markdownContent = await mdResponse.text();
-    console.log("Markdown読み込み成功");
-
-    // ページ情報を設定
-    updatePageInfo(casePath, caseId, jsonData);
-
-    // Markdownを表示
+    // Markdownが完了したら本文を表示
+    const markdownContent = await mdPromise;
     displayMarkdown(markdownContent);
+    
+    // まだ更新されていなければ念のため実行
+    const jsonData = await jsonPromise;
+    if (jsonData) {
+      document.title = `${casePath.split("/").pop().replace(".md", "")} - X-case`;
+    }
+
   } catch (error) {
     console.error("ケース読み込みエラー:", error);
     showError();
@@ -60,57 +58,17 @@ function updatePageInfo(casePath, caseId, jsonData) {
     ? `分析日: ${jsonData.analysis_date || "不明"}`
     : "";
 
-  // 概要セクションを更新
   if (jsonData) {
-    // caseOverviewを表示
+    // 概要セクションを表示
     const caseOverview = document.getElementById("caseOverview");
-    if (caseOverview) {
-      caseOverview.style.display = "block";
-      console.log("caseOverviewを表示");
-    }
+    if (caseOverview) caseOverview.style.display = "block";
 
+    // メトリクスとサムネイルの更新を1回に集約
     updateThumbnailData(jsonData, title);
-
-    // 確実にDOM更新を実行
-    const controversyRatio = getControversyRatio(jsonData);
-    const promotionScore = getPromotionScore(jsonData);
-
-    // 論争比率を確実に更新
-    const controversyElement = document.getElementById("thumbControversyStat");
-    if (controversyElement) {
-      controversyElement.textContent =
-        (controversyRatio * 100).toFixed(1) + "%";
-      console.log(
-        "確実更新: 論争比率を更新:",
-        (controversyRatio * 100).toFixed(1) + "%",
-      );
-    }
-
-    // プロモーションスコアを確実に更新
-    const promotionElement = document.getElementById("promotionText");
-    if (promotionElement) {
-      promotionElement.textContent = promotionScore + "%";
-      console.log(
-        "確実更新: プロモーションスコアを更新:",
-        promotionScore + "%",
-      );
-    }
-
-    // バーを確実に更新（アニメーションを考慮）
-    const barElement = document.getElementById("structuralJudgmentBar");
-    if (barElement) {
-      // トランジションを設定してから幅を更新
-      barElement.style.transition = "width 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
-      barElement.style.width = promotionScore + "%";
-      console.log("確実更新: バー幅を更新:", promotionScore + "%");
-    }
-
-    // 拡張機能：チャートセクションを表示
+    
+    // チャート表示（非同期でOK）
     displayChartsSection(jsonData);
   }
-
-  // ページタイトルを更新
-  document.title = `${title} - X-case`;
 }
 
 // 概要セクションを更新
@@ -238,143 +196,72 @@ function updateBackgroundByPromotionScore(promotionScore) {
     backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.high || "high.webp"})`;
   }
 
-  // ジャッジメントラッパーの背景画像を更新
-  const wrapper = document.getElementById("judgmentWrapper");
-  if (wrapper) {
-    wrapper.style.backgroundImage = backgroundImage;
-  }
-
-  // 親コンテナの背景設定をクリア
-  thumbnail.style.backgroundImage = "none";
-  thumbnail.style.backgroundColor = "white";
-}
-
-// 構造的判定スコアを更新
-function updateStructuralJudgmentScore(judgment) {
-  // 統一的なデータ取得関数を使用
-  const structuralScore = getPromotionScore(judgment);
-
-  console.log("構造的判定スコア:", structuralScore);
-
-  // 背景画像を更新（構造的判定スコアに応じて）
-  const thumbnail = document.querySelector(".overview-thumbnail");
-  if (thumbnail) {
-    let backgroundImage = "";
-    const config = window.CONFIG || {};
-
-    if (structuralScore >= 0 && structuralScore <= 19) {
-      backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.low || "low.webp "})`;
-    } else if (structuralScore >= 20 && structuralScore <= 39) {
-      backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.normal || "normal.webp"})`;
-    } else if (structuralScore >= 40 && structuralScore <= 69) {
-      backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.mid || "mid.webp"})`;
-    } else if (structuralScore >= 70) {
-      backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.high || "high.webp"})`;
-    }
-
-    // ジャッジメントラッパーの背景画像を更新
+  if (backgroundImage) {
     const wrapper = document.getElementById("judgmentWrapper");
     if (wrapper) {
       wrapper.style.backgroundImage = backgroundImage;
     }
-
-    // 親コンテナの背景設定をクリア（重複防止）
-    thumbnail.style.backgroundImage = "none";
-    thumbnail.style.backgroundColor = "white";
   }
+}
 
-  // DOMが完全に読み込まれた後にバーを更新
-  const updateBar = () => {
-    const structuralBar = document.getElementById("structuralJudgmentBar");
-    if (structuralBar) {
-      // トランジションを設定
-      structuralBar.style.transition =
-        "width 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
+// 論争比率を計算
+function getControversyRatio(jsonData) {
+  if (!jsonData) return 0;
+  
+  // JSONの構造に合わせて取得
+  const stats = jsonData.engagement_metrics || jsonData.metrics || {};
+  const views = stats.impressions || stats.views || 0;
+  const replies = stats.replies || 0;
+  
+  if (views === 0) return 0;
+  return (replies / views) * 100; // パーセントで返す場合は適宜調整
+}
 
-      // スコアに応じて色を設定（新しい仕様：0~20緑、20~40黄、40~60橙、60~100赤）
-      if (structuralScore <= 20) {
-        // 0~20：緑系
-        structuralBar.style.backgroundColor = "#28a745";
-      } else if (structuralScore <= 40) {
-        // 20~40：黄色系
-        structuralBar.style.backgroundColor = "#ffc107";
-      } else if (structuralScore <= 60) {
-        // 40~60：オレンジ系
-        structuralBar.style.backgroundColor = "#fd7e14";
-      } else {
-        // 60~100：赤系
-        structuralBar.style.backgroundColor = "#dc3545";
-      }
+// プロモーションスコアを計算（例：セルフプロモーション度）
+function getPromotionScore(jsonData) {
+  if (!jsonData) return 0;
+  
+  // JSONの構造に合わせて取得
+  const structural = jsonData.structural_judgment || {};
+  return structural.promotion_score || structural.score || 0;
+}
 
-      // CSSアニメーションを使用
-      structuralBar.style.width = structuralScore + "%";
-      structuralBar.classList.add("score-fill-animated");
-
-      // アニメーション完了後にクラスを削除（再利用のため）
-      setTimeout(() => {
-        structuralBar.classList.remove("score-fill-animated");
-      }, 1200);
-
-      console.log("CSSアニメーションでバー幅を設定:", structuralScore + "%");
-    } else {
-      // DOM要素が見つからない場合は少し待って再試行
-      setTimeout(updateBar, 100);
-    }
+// エンゲージメントメトリクスを取得
+function getEngagementMetrics(jsonData) {
+  if (!jsonData) return null;
+  
+  const stats = jsonData.engagement_metrics || jsonData.metrics || {};
+  return {
+    views: stats.impressions || stats.views || 0,
+    likes: stats.likes || 0,
+    reposts: stats.retweets || stats.reposts || 0,
+    replies: stats.replies || 0,
+    bookmarks: stats.bookmarks || 0
   };
-
-  // 即時実行
-  updateBar();
 }
 
-// プロモーションスコアを更新
-function updatePromotionScore(score) {
-  let promotionScore = 0;
-
-  if (typeof score === "number") {
-    promotionScore = score;
-  } else if (score && score.promotion_score) {
-    promotionScore = score.promotion_score;
-  } else if (score && score.reasoning && score.reasoning.promotion_elements) {
-    promotionScore = score.reasoning.promotion_elements.percentage;
-  }
-
-  console.log("プロモーションスコア更新:", promotionScore);
-
-  // DOMを更新 - エラーハンドリング付き
-  const promotionText = document.getElementById("promotionText");
-  if (promotionText) {
-    promotionText.textContent = promotionScore + "%";
-    // プロモーションスコアに応じて背景画像を更新
-    updateBackgroundByPromotionScore(promotionScore);
-  }
-}
-
-// 数字をフォーマット（生データを表示）
+// 数字をフォーマット（例：1234 -> 1,234）
 function formatNumber(num) {
-  return num.toLocaleString("ja-JP");
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
-// Markdownコンテンツを表示
+// Markdownを表示
 function displayMarkdown(content) {
-  const markdownContent = document.getElementById("markdownContent");
-  const loading = document.getElementById("loading");
   const caseContent = document.getElementById("caseContent");
+  const loading = document.getElementById("loading");
 
-  // 簡単なMarkdownパーサ（実際のプロジェクトではmarked.jsなどを使用）
-  const htmlContent = parseMarkdown(content);
-
-  markdownContent.innerHTML = htmlContent;
-
-  // ローディングを非表示にしてコンテンツを表示
-  loading.style.display = "none";
-  caseContent.style.display = "block";
+  if (loading) loading.style.display = "none";
+  if (caseContent) {
+    caseContent.innerHTML = parseMarkdown(content);
+    caseContent.style.display = "block";
+  }
 }
 
-// 簡単なMarkdownパーサ
-function parseMarkdown(markdown) {
+// 簡易Markdownパーサー
+function parseMarkdown(md) {
   return (
-    markdown
-      // ヘッダー
+    md
+      // 見出し
       .replace(/^### (.*$)/gim, "<h3>$1</h3>")
       .replace(/^## (.*$)/gim, "<h2>$1</h2>")
       .replace(/^# (.*$)/gim, "<h1>$1</h1>")
@@ -401,15 +288,17 @@ function showError() {
   const loading = document.getElementById("loading");
   const caseContent = document.getElementById("caseContent");
 
-  loading.style.display = "none";
-  caseContent.innerHTML = `
-    <div class="error">
-      <h2>ケースが見つかりませんでした</h2>
-      <p>指定されたケースが存在しないか、読み込みエラーが発生しました。</p>
-      <a href="index.html">トップページに戻る</a>
-    </div>
-  `;
-  caseContent.style.display = "block";
+  if (loading) loading.style.display = "none";
+  if (caseContent) {
+    caseContent.innerHTML = `
+      <div class="error">
+        <h2>ケースが見つかりませんでした</h2>
+        <p>指定されたケースが存在しないか、読み込みエラーが発生しました。</p>
+        <a href="index.html">トップページに戻る</a>
+      </div>
+    `;
+    caseContent.style.display = "block";
+  }
 }
 
 // Xで共有
@@ -447,6 +336,9 @@ function saveThumbnail() {
   const element = document.getElementById("overviewThumbnail");
 
   if (typeof html2canvas !== "undefined") {
+    // 保存時用のスタイルを一時的に適用（グラデーションテキスト対策）
+    element.classList.add("is-capturing");
+
     html2canvas(element, {
       backgroundColor: null,
       scale: 2,
@@ -454,6 +346,9 @@ function saveThumbnail() {
       logging: false,
     })
       .then((canvas) => {
+        // スタイルを元に戻す
+        element.classList.remove("is-capturing");
+
         // ダウンロードリンクを作成
         const link = document.createElement("a");
         link.download = `${document.getElementById("caseTitle").textContent}_thumbnail.png`;
@@ -461,6 +356,7 @@ function saveThumbnail() {
         link.click();
       })
       .catch((error) => {
+        element.classList.remove("is-capturing");
         console.error("サムネイル保存エラー:", error);
         alert("サムネイルの保存に失敗しました。");
       });
