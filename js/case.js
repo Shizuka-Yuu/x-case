@@ -144,9 +144,6 @@ function updatePromotionUI(score) {
 
 // 背景画像を更新
 function updateBackgroundByPromotionScore(promotionScore) {
-  const wrapper = document.getElementById("judgmentWrapper");
-  if (!wrapper) return;
-
   const config = window.CONFIG || {};
   const images = config.backgroundImages?.images || {};
   let imgName = "normal.webp";
@@ -156,10 +153,11 @@ function updateBackgroundByPromotionScore(promotionScore) {
   else if (promotionScore <= 69) imgName = images.mid || "mid.webp";
   else imgName = images.high || "high.webp";
 
-  const basePath = config.backgroundImages?.basePath || "img";
-  wrapper.style.backgroundImage = `url(${basePath}/${imgName})`;
-  wrapper.style.backgroundSize = "cover";
-  wrapper.style.backgroundPosition = "center";
+  const imgElement = document.getElementById("judgmentImage");
+  if (imgElement) {
+    const basePath = config.backgroundImages?.basePath || "img";
+    imgElement.src = `${basePath}/${imgName}`;
+  }
 }
 
 // ヘルパー：論争比率を取得
