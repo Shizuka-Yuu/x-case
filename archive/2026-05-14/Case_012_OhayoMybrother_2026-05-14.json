@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_012",
+  "target": {
+    "url": "https://x.com/OhayoMybrother/status/2054424182780514392",
+    "user": "おはよ!まいぶらざー",
+    "handle": "@OhayoMybrother"
+  },
+  "metrics": {
+    "views": 1276000,
+    "replies": 1782,
+    "reposts": 19000,
+    "likes": 50000,
+    "bookmarks": 969,
+    "controversy_ratio": 3.56,
+    "bookmark_rate": 0.076
+  },
+  "analysis": {
+    "logic_structure": "Emphasis on '4th arrest' to trigger righteous indignation and debate.",
+    "engagement_type": "Indignation / Public Safety Concern",
+    "algorithm_strategy": "Niche optimization for social/political cluster with high interaction."
+  },
+  "promotion_score": 40,
+  "analysis_date": "2026-05-14"
+}

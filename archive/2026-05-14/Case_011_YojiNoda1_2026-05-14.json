@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_011",
+  "target": {
+    "url": "https://x.com/YojiNoda1/status/2054471548984049754",
+    "user": "Yojiro Noda",
+    "handle": "@YojiNoda1"
+  },
+  "metrics": {
+    "views": 10047000,
+    "replies": 2035,
+    "reposts": 24619,
+    "likes": 148531,
+    "bookmarks": 10579,
+    "controversy_ratio": 1.37,
+    "bookmark_rate": 0.10
+  },
+  "analysis": {
+    "logic_structure": "Storytelling from current topic to personal music background.",
+    "engagement_type": "Pure Empathy / Nostalgia",
+    "algorithm_strategy": "High retention via long-form text and iconic lyrics."
+  },
+  "promotion_score": 15,
+  "analysis_date": "2026-05-14"
+}

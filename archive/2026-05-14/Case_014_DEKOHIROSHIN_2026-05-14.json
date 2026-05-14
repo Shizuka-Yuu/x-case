@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_014",
+  "target": {
+    "url": "https://x.com/DEKOHIROSHIN/status/2054490670879199250",
+    "user": "男の有益情報B0T",
+    "handle": "@DEKOHIROSHIN"
+  },
+  "metrics": {
+    "views": 2503000,
+    "replies": 223,
+    "reposts": 258,
+    "likes": 9737,
+    "bookmarks": 13000,
+    "controversy_ratio": 2.29,
+    "bookmark_rate": 0.52
+  },
+  "analysis": {
+    "logic_structure": "List/Ranking format to facilitate bookmarking for later reference.",
+    "engagement_type": "Stealth Retention (Bookmarks > Likes)",
+    "algorithm_strategy": "Maximizing algorithm weight of bookmarks via delicate content."
+  },
+  "promotion_score": 60,
+  "analysis_date": "2026-05-14"
+}

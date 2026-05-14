@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_016",
+  "target": {
+    "url": "https://x.com/NoContextErrors/status/2054486506644107629",
+    "user": "誤爆",
+    "handle": "@NoContextErrors"
+  },
+  "metrics": {
+    "views": 18970000,
+    "replies": 137,
+    "reposts": 714,
+    "likes": 13000,
+    "bookmarks": 4980,
+    "controversy_ratio": 1.05,
+    "video_view_rate": 100.0
+  },
+  "analysis": {
+    "logic_structure": "Hyena-style clickbait using high-impact stolen/quoted broadcast accident video.",
+    "engagement_type": "Passive Voyeurism / Link Conversion",
+    "algorithm_strategy": "Maximizing viral reach of shock content to monetize impressions via reply-section links."
+  },
+  "promotion_score": 95,
+  "analysis_date": "2026-05-14"
+}

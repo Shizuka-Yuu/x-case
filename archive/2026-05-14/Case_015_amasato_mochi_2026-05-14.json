@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_015",
+  "target": {
+    "url": "https://x.com/amasato_mochi/status/2054469758129770511",
+    "user": "甘里もち",
+    "handle": "@amasato_mochi"
+  },
+  "metrics": {
+    "views": 10490000,
+    "replies": 19,
+    "reposts": 13799,
+    "likes": 86692,
+    "bookmarks": 5133,
+    "controversy_ratio": 0.02,
+    "bookmark_rate": 0.048
+  },
+  "analysis": {
+    "logic_structure": "Question and Answer format via quote repost with high-impact visual evidence.",
+    "engagement_type": "Pure Surprise / Social Shareability",
+    "algorithm_strategy": "Strong visual hook leading to high dwell time and sharing."
+  },
+  "promotion_score": 5,
+  "analysis_date": "2026-05-14"
+}

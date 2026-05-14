@@ -1,0 +1,24 @@
+{
+  "case_id": "Case_013",
+  "target": {
+    "url": "https://x.com/DAZNJPNBaseball/status/2054559424526565487",
+    "user": "DAZNベースボール",
+    "handle": "@DAZNJPNBaseball"
+  },
+  "metrics": {
+    "views": 6355000,
+    "replies": 960,
+    "reposts": 31928,
+    "likes": 111757,
+    "bookmarks": 10872,
+    "controversy_ratio": 0.86,
+    "bookmark_rate": 0.17
+  },
+  "analysis": {
+    "logic_structure": "Instant sharing of a historic/dramatic moment via high-quality video.",
+    "engagement_type": "Celebratory Quote / Pure Admiration",
+    "algorithm_strategy": "Maximum retention via high-stakes highlight video and viral hashtags."
+  },
+  "promotion_score": 30,
+  "analysis_date": "2026-05-14"
+}
