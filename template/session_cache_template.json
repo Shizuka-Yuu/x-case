@@ -1,0 +1,35 @@
+{
+  "session_info": {
+    "target_url": "",
+    "case_id": "",
+    "status": "extracting | analyzing | reporting",
+    "last_updated": ""
+  },
+  "extracted_data": {
+    "metrics": {
+      "views": null,
+      "replies": null,
+      "reposts": null,
+      "likes": null,
+      "bookmarks": null,
+      "timestamp": null
+    },
+    "content": {
+      "text": "",
+      "media_description": "",
+      "media_urls": []
+    },
+    "user_info": {
+      "name": "",
+      "handle": "",
+      "followers": null,
+      "bio": ""
+    }
+  },
+  "analysis_progress": {
+    "logic_structure": "",
+    "engagement_notes": "",
+    "algorithm_strategy": "",
+    "promotion_score_draft": null
+  }
+}
