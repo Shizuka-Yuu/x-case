@@ -226,6 +226,7 @@ body {
 
 .judgment-bar {
   height: 100%;
+  width: 0%;
   transition:
     width 1.2s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.3s ease;

@@ -119,14 +119,16 @@ function updatePromotionUI(score) {
 
   const bar = document.getElementById("structuralJudgmentBar");
   if (bar) {
-    bar.style.transition = "width 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
-    bar.style.width = score + "%";
-    
     // スコアに応じた色分け
     if (score <= 20) bar.style.backgroundColor = "#28a745";
     else if (score <= 40) bar.style.backgroundColor = "#ffc107";
     else if (score <= 60) bar.style.backgroundColor = "#fd7e14";
     else bar.style.backgroundColor = "#dc3545";
+
+    // トランジションを確実に走らせるため、次のフレームで幅を更新
+    requestAnimationFrame(() => {
+      bar.style.width = score + "%";
+    });
   }
 }
 
