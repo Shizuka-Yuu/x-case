@@ -1,10 +1,9 @@
-
+.gemini/
 Private/
 backup/
 old_archive/
+analysis_cache
 
 
 image-analyzer/README.md
-
-procedure.md
-X-Analysis-Command.md
+analysis_cache/current_session.json
