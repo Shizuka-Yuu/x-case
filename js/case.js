@@ -119,7 +119,14 @@ function updatePromotionUI(score) {
 
   const bar = document.getElementById("structuralJudgmentBar");
   if (bar) {
-    // JS側でトランジションを制御
+    // 一旦トランジションを無効にして 0% にセット
+    bar.style.transition = "none";
+    bar.style.width = "0%";
+    
+    // 強制リフロー（ブラウザに現在の 0% 状態を確定させる）
+    bar.offsetHeight; 
+    
+    // トランジションを再設定
     bar.style.transition = "width 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
     
     // スコアに応じた色分け
@@ -128,7 +135,7 @@ function updatePromotionUI(score) {
     else if (score <= 60) bar.style.backgroundColor = "#fd7e14";
     else bar.style.backgroundColor = "#dc3545";
 
-    // 次の描画タイミングで幅を更新することで確実にアニメーションさせる
+    // 次のフレームで値を更新することで、確実にアニメーションを開始させる
     requestAnimationFrame(() => {
       bar.style.width = score + "%";
     });
