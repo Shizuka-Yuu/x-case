@@ -1,0 +1,16 @@
+{
+  "last_case_id": 16,
+  "cases": [
+    { "id": "Case_001", "date": "2026-05-13", "user": "unknown", "file": "archive/2026-05-13/Case_001_..." },
+    { "id": "Case_007", "date": "2026-05-13", "user": "okada_junichi", "file": "archive/2026-05-13/Case_007_okada_junichi_spot_2026-05-13.md" },
+    { "id": "Case_008", "date": "2026-05-13", "user": "hideto_sa", "file": "archive/2026-05-13/Case_008_hideto_sa_spot_2026-05-13.md" },
+    { "id": "Case_009", "date": "2026-05-13", "user": "hideto_sa", "file": "archive/2026-05-13/Case_009_hideto_sa_spot_2026-05-13.md" },
+    { "id": "Case_010", "date": "2026-05-13", "user": "gihuboy", "file": "archive/2026-05-13/Case_010_gihuboy_spot_2026-05-13.md" },
+    { "id": "Case_011", "date": "2026-05-14", "user": "YojiNoda1", "file": "archive/2026-05-14/Case_011_YojiNoda1_likes_2026-05-14.md" },
+    { "id": "Case_012", "date": "2026-05-14", "user": "OhayoMybrother", "file": "archive/2026-05-14/Case_012_OhayoMybrother_replies_2026-05-14.md" },
+    { "id": "Case_013", "date": "2026-05-14", "user": "DAZNJPNBaseball", "file": "archive/2026-05-14/Case_013_DAZNJPNBaseball_quotes_2026-05-14.md" },
+    { "id": "Case_014", "date": "2026-05-14", "user": "DEKOHIROSHIN", "file": "archive/2026-05-14/Case_014_DEKOHIROSHIN_bookmarks_2026-05-14.md" },
+    { "id": "Case_015", "date": "2026-05-14", "user": "amasato_mochi", "file": "archive/2026-05-14/Case_015_amasato_mochi_shares_2026-05-14.md" },
+    { "id": "Case_016", "date": "2026-05-14", "user": "NoContextErrors", "file": "archive/2026-05-14/Case_016_NoContextErrors_video_2026-05-14.md" }
+  ]
+}
