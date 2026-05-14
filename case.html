@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>X-case - Case Viewer</title>
-    <link rel="stylesheet" href="styles/case-styles.css" />
+    <link rel="stylesheet" href="styles/case-styles.css?v=2.0" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
   </head>
   <body>
     <div class="case-container">
@@ -20,15 +20,12 @@
       <div id="loading" class="loading">ケースデータを読み込み中...</div>
 
       <div id="caseOverview" class="case-overview" style="display: none">
-        <div
-          class="overview-thumbnail"
-          id="overviewThumbnail"
-          style="position: relative"
-        >
+        <div class="overview-thumbnail" id="overviewThumbnail">
           <div class="thumbnail-header">
             <div class="thumbnail-title" id="thumbnailTitle">ケース分析</div>
             <div class="thumbnail-case-id" id="thumbnailCaseId">Case #000</div>
           </div>
+          
           <div class="thumbnail-metrics" id="thumbnailMetrics">
             <div class="thumbnail-metric">
               <div class="metric-value" id="thumbViewsStat">-</div>
@@ -55,28 +52,28 @@
               <div class="metric-label">論争比率</div>
             </div>
           </div>
-          <div class="judgment-section" id="judgmentSection">
-            <div class="judgment-title">
-              <span>構造的判定</span>
-              <span class="promotion-score">
-                <span class="promotion-title">
-                  <span> - プロモーション度 : </span>
-                  <span class="promotion-text" id="promotionText">0%</span>
+          
+          <div class="thumbnail-right-pane">
+            <div class="judgment-section" id="judgmentSection">
+              <div class="judgment-title">
+                <span class="judgment-title-label">構造的判定</span>
+                <span class="promotion-score">
+                  <span class="promotion-title">
+                    <span>セルフプロモーション度 : </span>
+                    <span class="promotion-text" id="promotionText">0%</span>
+                  </span>
                 </span>
-              </span>
               </div>
               <div class="judgment-content">
                 <div class="judgment-bar-container">
-                  <div
-                    class="judgment-bar"
-                    id="structuralJudgmentBar"
-                    style="width: 0%"
-                  ></div>
+                  <div class="judgment-bar" id="structuralJudgmentBar" style="width: 0%"></div>
                 </div>
               </div>
             </div>
+            <div class="judgment-wrapper" id="judgmentWrapper"></div>
           </div>
         </div>
+        
         <div class="overview-content">
           <div class="social-actions">
             <button class="social-button x-share" onclick="shareToX()">
@@ -85,10 +82,7 @@
             <button class="social-button copy-link" onclick="copyLink()">
               <span>リンクをコピー</span>
             </button>
-            <button
-              class="social-button save-thumbnail"
-              onclick="saveThumbnail()"
-            >
+            <button class="social-button save-thumbnail" onclick="saveThumbnail()">
               <span>プレビュー保存</span>
             </button>
           </div>
@@ -96,9 +90,9 @@
       </div>
 
       <!-- 拡張機能：チャートセクション -->
-      <div id="chartsSection" class="charts-section" style="display: none;">
+      <div id="chartsSection" class="charts-section" style="display: none">
         <h2 class="section-title">詳細分析</h2>
-        
+
         <!-- レーダーチャート -->
         <div class="chart-container">
           <h3>レーダーチャート分析</h3>

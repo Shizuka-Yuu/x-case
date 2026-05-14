@@ -238,9 +238,15 @@ function updateBackgroundByPromotionScore(promotionScore) {
     backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.high || "high.webp"})`;
   }
 
-  // 背景画像を更新（現在の配置を維持）
-  thumbnail.style.background = `white ${backgroundImage} no-repeat 50% 129%`;
-  thumbnail.style.backgroundSize = "contain";
+  // ジャッジメントラッパーの背景画像を更新
+  const wrapper = document.getElementById("judgmentWrapper");
+  if (wrapper) {
+    wrapper.style.backgroundImage = backgroundImage;
+  }
+
+  // 親コンテナの背景設定をクリア
+  thumbnail.style.backgroundImage = "none";
+  thumbnail.style.backgroundColor = "white";
 }
 
 // 構造的判定スコアを更新
@@ -266,9 +272,15 @@ function updateStructuralJudgmentScore(judgment) {
       backgroundImage = `url(${config.backgroundImages?.basePath || "img"}/${config.backgroundImages?.images.high || "high.webp"})`;
     }
 
-    // 背景画像を更新（現在の配置を維持）
-    thumbnail.style.background = `white ${backgroundImage} no-repeat 50% 129%`;
-    thumbnail.style.backgroundSize = "contain";
+    // ジャッジメントラッパーの背景画像を更新
+    const wrapper = document.getElementById("judgmentWrapper");
+    if (wrapper) {
+      wrapper.style.backgroundImage = backgroundImage;
+    }
+
+    // 親コンテナの背景設定をクリア（重複防止）
+    thumbnail.style.backgroundImage = "none";
+    thumbnail.style.backgroundColor = "white";
   }
 
   // DOMが完全に読み込まれた後にバーを更新
@@ -438,6 +450,8 @@ function saveThumbnail() {
     html2canvas(element, {
       backgroundColor: null,
       scale: 2,
+      useCORS: true,
+      logging: false,
     })
       .then((canvas) => {
         // ダウンロードリンクを作成
