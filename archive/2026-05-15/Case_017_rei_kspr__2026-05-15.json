@@ -1,0 +1,94 @@
+{
+  "case_id": "017",
+  "case_type": "inspiration",
+  "filename": "Case_017_rei_kspr__2026-05-15",
+  "analysis_date": "2026-05-15",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "analysis_confidence": {
+    "total_score": 100,
+    "details": {
+      "base_data": true,
+      "media_analysis": true,
+      "reply_analysis": true,
+      "context_reference": true
+    }
+  },
+  "target": {
+    "url": "https://x.com/rei_kspr_/status/2054856503870513475",
+    "author": "麗蘭@ストフェス5/17",
+    "author_handle": "rei_kspr_",
+    "post_date": "2026-05-14T18:29:00Z",
+    "verified": false,
+    "background_context": "コメダ珈琲店の「逆写真詐欺」という定番ネタへの便乗"
+  },
+  "metrics": {
+    "views": 20840000,
+    "replies": 2222,
+    "reposts": 17031,
+    "likes": 216093,
+    "bookmarks": 9299,
+    "controversy_ratio": 1.03,
+    "retention_density": 0.023,
+    "utility_aspiration_score": 0.45,
+    "text_length": 15
+  },
+  "content_analysis": {
+    "content_type": "画像比較投稿",
+    "text_content": "コメダまじでふざけんなwwwwww",
+    "media": "画像2枚（メニュー vs 実物）",
+    "author_attributes": {
+      "name": "麗蘭@ストフェス5/17",
+      "verification": "未認証",
+      "followers": 1068,
+      "profile": "東海地方拠点。コスプレイヤー。週刊少年ジャンプ作品等。",
+      "account_type": "コスプレイヤー・個人"
+    }
+  },
+  "timeline_facts": {
+    "inspiration": "トレンド・文化的あるある",
+    "mutual_posting": "なし",
+    "event_type": "エンタメ・バイラル"
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "hook": "ネガティブな語調による注意喚起",
+      "body": "視覚的な期待以上の事実提示",
+      "resolution": "笑いと共感による完結"
+    },
+    "intended_behavior": {
+      "agreement": "高い",
+      "sharing": "高い",
+      "profile_visit": "中程度"
+    }
+  },
+  "engagement_analysis": {
+    "ratio_analysis": "議論密度の低さから、全方位肯定的なバイラルと判定",
+    "retention_density": "画像比較による視覚的滞在時間の確保"
+  },
+  "algorithm_strategy": {
+    "dwell_time_factors": {
+      "visual_comparison": "高い"
+    },
+    "interaction_induction": {
+      "humor_feedback": "高い"
+    }
+  },
+  "author_analysis": {
+    "name": "麗蘭@ストフェス5/17",
+    "handle": "rei_kspr_",
+    "followers": 1068,
+    "verified": false,
+    "profile": "東海地方拠点。コスプレイヤー。",
+    "account_reliability": "オーガニック・本人運用"
+  },
+  "structural_judgment": {
+    "score": 30,
+    "reasoning": [
+      "戦略的な感情フックの使用",
+      "文化的ネタへの的確な便乗",
+      "バイラル後の自己宣伝導線の確保"
+    ]
+  },
+  "promotion_score": 30,
+  "summary": "文化的背景を活かした極めて洗練されたバイラル構造。日常投稿を装いつつ、アルゴリズムとユーザー心理を的確に突いている。"
+}

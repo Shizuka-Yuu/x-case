@@ -1,9 +1,8 @@
 .gemini/
 Private/
-backup/
-old_archive/
-analysis_cache
+Analysis-System/cache/
+Analysis-System/procedure/
 
 
 image-analyzer/README.md
-analysis_cache/current_session.json
+GIT_OPERATIONS.md

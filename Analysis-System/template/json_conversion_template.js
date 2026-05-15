@@ -22,6 +22,17 @@ function standardizeJsonData(rawData, caseId, caseDate, authorName, authorHandle
     analysis_date: caseDate,
     analyzer_version: "X-Event-Analyzer v2.0",
     
+    // 分析信頼度
+    analysis_confidence: {
+      total_score: rawData.analysis_confidence?.total_score || 0,
+      details: {
+        base_data: rawData.analysis_confidence?.details?.base_data || false,
+        media_analysis: rawData.analysis_confidence?.details?.media_analysis || false,
+        reply_analysis: rawData.analysis_confidence?.details?.reply_analysis || false,
+        context_reference: rawData.analysis_confidence?.details?.context_reference || false
+      }
+    },
+    
     // ターゲット情報の標準化
     target: {
       url: rawData.target?.url || "",

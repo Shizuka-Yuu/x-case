@@ -1,0 +1,74 @@
+{
+  "case_id": "Case_018",
+  "case_type": "standard",
+  "filename": "Case_018_muso63194559991_2026-05-15",
+  "analysis_date": "2026-05-15",
+  "analyzer_version": "X-Event-Analyzer v2.0",
+  "analysis_confidence": {
+    "total_score": 90,
+    "details": {
+      "base_data": true,
+      "media_analysis": true,
+      "reply_analysis": true,
+      "context_reference": true
+    }
+  },
+  "target": {
+    "url": "https://x.com/muso63194559991/status/2055212345748808013",
+    "author": "無双@ ～Goal to FIRE～",
+    "author_handle": "muso63194559991",
+    "post_date": "2026-05-15T09:03:01Z",
+    "verified": false,
+    "background_context": "Kioxia earnings announcement day. Stock hit stop-high in PTS after falling during market hours."
+  },
+  "metrics": {
+    "views": 259,
+    "replies": 0,
+    "reposts": 0,
+    "likes": 2,
+    "bookmarks": 0,
+    "controversy_ratio": 0,
+    "retention_density": 0.0077,
+    "utility_aspiration_score": 0,
+    "text_length": 146
+  },
+  "content_analysis": {
+    "content_type": "テキスト投稿",
+    "text_content": "キオクシアが怪物すぎる😂\n\n場中めっちゃ下げてて、決算漏れてる？って心配したけど、PTSではストップ高📈\n強すぎる😹\n\nエースが崩れたら日本株の行方が心配だったから良かった😅\n\n今日は銀行や保険セクターも強かったですね😊🌟\n\nUFJもさすがの決算✨\n\n昨日の暴落のショックが少し和らいだかな😹",
+    "media": "なし",
+    "author_attributes": {
+      "name": "無双@ ～Goal to FIRE～",
+      "verification": "未認証",
+      "followers": 966,
+      "profile": "いつかは無双したい弱小投資家です😎 2021年よりインデックス 2023年より個別株 目標配当金は120万円／年💰️ 現在は全く届いてません😭",
+      "account_type": "個人投資家"
+    }
+  },
+  "structure_analysis": {
+    "logical_structure": {
+      "hook": "Extreme reaction to stock news",
+      "context": "Relief from market volatility recovery",
+      "scope_expansion": "Positive outlook on financial sector"
+    },
+    "intended_behavior": {
+      "empathy": "High",
+      "informational": "Moderate",
+      "conversion": "Low"
+    }
+  },
+  "structural_judgment": {
+    "score": 5,
+    "reasoning": [
+      "No external links or CTA present.",
+      "Engagement metrics are consistent with account size.",
+      "Content is purely emotional/reactive to market events."
+    ]
+  },
+  "promotion_score": 5,
+  "metadata": {
+    "case_title": "Case #018",
+    "analysis_completion_date": "2026-05-15T18:22:10+09:00",
+    "analysis_method": "X-Event-Analyzer v2.0",
+    "content_facts": "Real-time stock market reaction"
+  }
+}
